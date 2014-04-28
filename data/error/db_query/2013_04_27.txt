@@ -1,0 +1,244 @@
+===============2013-04-27 11:18:07===================
+MySQL Query:select act_name,act_shop_id from kj_meal_act where act_shop_id in() and act_state>0 and act_isdel=0 and act_starttime<='2013-04-27 11:18' and act_endtime>='2013-04-27 11:18' <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and act_state>0 and act_isdel=0 and act_starttime<='2013-04-27 11:18' and act_' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_act=shop&id=5
+-------------------GET---------------------
+app_act=>shop
+id=>5
+-------------------POST---------------------
+
+===============2013-04-27 16:23:24===================
+MySQL Query:select * from kj_meal_order where order_id='110 and order_user_id='1' <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:23:24===================
+MySQL Query:select menu_id,menu_title,menu_pic_small,menu_pic,menu_price from kj_meal_menu where menu_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:23:38===================
+MySQL Query:select * from kj_meal_order where order_id='110 and order_user_id='1' <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:23:38===================
+MySQL Query:select menu_id,menu_title,menu_pic_small,menu_pic,menu_price from kj_meal_menu where menu_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:24:05===================
+MySQL Query:select * from kj_meal_order where order_id='110 and order_user_id='1' <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:24:05===================
+MySQL Query:select menu_id,menu_title,menu_pic_small,menu_pic,menu_price from kj_meal_menu where menu_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:25:53===================
+MySQL Query:select * from kj_meal_order where order_id='110 and order_user_id='1' <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=member&app_act=order.detail&id=110
+-------------------GET---------------------
+app=>member
+app_act=>order.detail
+id=>110
+-------------------POST---------------------
+
+===============2013-04-27 16:47:04===================
+MySQL Query:select menu_id,menu_state,menu_shop_id,menu_mode,menu_weekday,menu_date,menu_sold_time,menu_num,menu_sold_today from kj_meal_menu,menu_title,menu_price where menu_id in(323,320) <br /> MySQL Error:Table 'kj_meal3_mall.menu_title' doesn't exist <br /> MySQL Errno:1146
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=5
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => POST
+QUERY_STRING => app_ajax=1&app=ajax&app_act=saveorder
+-------------------GET---------------------
+app_ajax=>1
+app=>ajax
+app_act=>saveorder
+-------------------POST---------------------
+cart_ids=>5:323|320
+menuprice=>Array
+btn_jian=>
+menunum=>Array
+score=>
+area_select=>1
+btnedit=>Array
+btndel=>Array
+area_id=>3655
+area_allid=>2297,3647,3655
+area=>福田区 车公庙 安华工业区4栋
+info_area_id=>Array
+louhao1=>
+louhao2=>
+name=>
+sex=>先生
+mobile=>
+tel=>八位数字不带区号
+telext=>分机选填
+company=>公司名称-选填
+depart=>部门-选填
+btn_saveinfo=>取 消
+arrive=>1730
+paymethod=>afterpayment
+ticket=>0
+beta=>
+btn_ok=>正在提交
+
+===============2013-04-27 16:47:57===================
+MySQL Query:select menu_id,menu_state,menu_shop_id,menu_mode,menu_weekday,menu_date,menu_sold_time,menu_num,menu_sold_today from kj_meal_menu,menu_title,menu_price where menu_id in(323,320) <br /> MySQL Error:Table 'kj_meal3_mall.menu_title' doesn't exist <br /> MySQL Errno:1146
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=5
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => POST
+QUERY_STRING => app_ajax=1&app=ajax&app_act=saveorder
+-------------------GET---------------------
+app_ajax=>1
+app=>ajax
+app_act=>saveorder
+-------------------POST---------------------
+cart_ids=>5:323|320
+menuprice=>Array
+btn_jian=>
+menunum=>Array
+score=>
+area_select=>1
+btnedit=>Array
+btndel=>Array
+area_id=>3655
+area_allid=>2297,3647,3655
+area=>福田区 车公庙 安华工业区4栋
+info_area_id=>Array
+louhao1=>
+louhao2=>
+name=>
+sex=>先生
+mobile=>
+tel=>八位数字不带区号
+telext=>分机选填
+company=>公司名称-选填
+depart=>部门-选填
+btn_saveinfo=>取 消
+arrive=>1730
+paymethod=>afterpayment
+ticket=>0
+beta=>
+btn_ok=>正在提交
+
+===============2013-04-27 16:48:31===================
+MySQL Query:select menu_id,menu_state,menu_shop_id,menu_mode,menu_weekday,menu_date,menu_sold_time,menu_num,menu_sold_today from kj_meal_menu,menu_title,menu_price where menu_id in(323,320) <br /> MySQL Error:Table 'kj_meal3_mall.menu_title' doesn't exist <br /> MySQL Errno:1146
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=5
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => POST
+QUERY_STRING => app_ajax=1&app=ajax&app_act=saveorder
+-------------------GET---------------------
+app_ajax=>1
+app=>ajax
+app_act=>saveorder
+-------------------POST---------------------
+cart_ids=>5:323|320
+menuprice=>Array
+btn_jian=>
+menunum=>Array
+score=>
+area_select=>1
+btnedit=>Array
+btndel=>Array
+area_id=>3655
+area_allid=>2297,3647,3655
+area=>福田区 车公庙 安华工业区4栋
+info_area_id=>Array
+louhao1=>
+louhao2=>
+name=>
+sex=>先生
+mobile=>
+tel=>八位数字不带区号
+telext=>分机选填
+company=>公司名称-选填
+depart=>部门-选填
+btn_saveinfo=>取 消
+arrive=>1730
+paymethod=>afterpayment
+ticket=>0
+beta=>
+btn_ok=>正在提交

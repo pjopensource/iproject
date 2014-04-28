@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{include(shop_top)}
+</head>
+<body>
+{include(shop_header)}
+<div class="main">
+	<input type="hidden" name="shop_progress" value="{$editinfo['shop_progress']}">
+	<div style="float:left;width:100%;height:5px;font-size:0px">&nbsp;</div>
+	{include(shop_left)}
+  	<div class="member_right1" style="background:url(images/Title_bk_730px_2.gif) no-repeat">
+		<li{if(fun_get::get('state')=='')} class="x_sel"{/if} onclick="window.location='{fun_get::url(array('state'=>''))}';">未处理</li>
+		<li{if(fun_get::get('state')=='1')} class="x_sel"{/if} onclick="window.location='{fun_get::url(array('state'=>'1'))}';">已接收</li>
+		<li{if(fun_get::get('state')=='-1')} class="x_sel"{/if} onclick="window.location='{fun_get::url(array('state'=>'-1'))}';">已拒绝</li>
+	</div>
+	<div class="member_right3" style="border-bottom:0px;padding-top:10px;color:#0000ff;font-weight:bold">
+		日期：<input type="text" id="id_s_date" name="s_date" value="{fun_get::get('s_date')}" class='pTxtDate' onfocus="new Calendar().show(this,null,function(){window.location.href='{fun_get::url(array('s_date'=>''))}&s_date='+kj.obj('#id_s_date').value;});">&nbsp;&nbsp;总单量：{$x=count($order_list['list'])}
+	</div>
+	<div class="member_right3" style="font-size:12px;padding-top:0px" id="id_list_cont">
+	{foreach($order_list['list'] as $item)}
+		<div class="shop5">
+			<div class="x_tit"><font class="txt_orangeB">{$item['order_time']}</font></div>
+			{foreach($item['menu'] as $key => $menu)}
+				<div class="x_li1">
+					<li class="x_col1">
+					{set $price=0}
+					{foreach($menu['id'] as $item_menu)}
+						{set $price+=$order_list['price']['id_'.$item_menu]}
+						{$order_list['menu']['id_'.$item_menu]['menu_title']}&nbsp;&nbsp;
+					{/foreach}
+					</li>
+					<li class="x_col3">￥{$price*$menu['num']}</li>
+					<li class="x_col2">{$menu['num']}份</li>
+				</div>
+			{/foreach}
+			<div class="x_info2">
+			{$item['order_name']}/{$item['order_sex']}<br>{$item["order_area"]} — {$item['order_louhao1']}层/{$item['order_louhao2']}室{if(!empty($item['order_company']))} — {$item['order_company']}{if(!empty($item['order_depart']))}/{$item['order_depart']}{/if}{/if}
+			<br>{if(!empty($item['order_tel']))}固话：座机-不带区号{if(!empty($item['order_telext']))} 转 {$item['order_telext']}{/if}{/if}{if(!empty($item['order_tel']) && !empty($item['order_mobile']))} / {/if}{if(!empty($item['order_mobile']))}手机：{$item['order_mobile']}{/if}
+			{if(!empty($item['order_act_ids']))}
+			<br><span style="color:#ff8800">{$item['order_act_ids']}</span>
+			{/if}
+			</div>
+			{if(!empty($item['order_beta']))}
+			<div class="x_info2" style='margin-top:8px;color:#ff0000'>
+			{$item['order_beta']}
+			</div>
+			{/if}
+			<div class="x_info1">总计 ￥{$item['order_total']}{if(!empty($item['order_score_money']))} - 抵扣 ￥{$item['order_score_money']}{/if}{if(!empty($item['order_favorable']))} - 优惠 ￥{$item['order_favorable']}{/if} = 应收：<font class="txt_redB">￥{$item['order_total_pay']}</font>
+			<br>送餐时间：<font class="txt_redB">{if(isset($order_list['arrivetime'][$item['order_arrive']]))}{$order_list['arrivetime'][$item['order_arrive']]}{else}{$item['order_arrive']}{/if}</font>
+			{if(!empty($item['order_ticket']))}
+			<br><font>索取发票：￥{$item['order_ticket']}</font>
+			{/if}
+			</div>
+			{if(empty($item['order_state']))}
+			<div class="x_info1" id="id_btn_{$item['order_id']}" style="color:#0000ff"><input type="button" name="btn_accept" onclick="thisjs.accept({$item['order_id']})" class="btn_bg1" value="接受预订">&nbsp;&nbsp;<input type="button" name="btn_refuse" class="btn_bg1" value="拒绝预订" onclick="thisjs.show_state({$item['order_id']});"></div>
+			{/if}
+		</div>
+	{/foreach}
+	</div>
+</div>
+{include(shop_footer)}
+<script>
+var thisjs = new function() {
+	this.state_html = '';
+	this.refuse_id = 0;//拒绝接受订单id号
+	this.new_id = this.getnew_id = kj.toint('{$order_list["newid"]}');
+	this.accept = function(id) {
+		kj.ajax.get("{fun_get::url(array('app_act'=>'accept','id'=>''))}&id="+id,function(data){
+			var obj_data = kj.json(data);
+			if(obj_data.isnull) {
+				alert("处理失败");
+			} else {
+				if('code' in obj_data && obj_data.code=='0') {
+					kj.obj("#id_btn_" + obj_data.id).innerHTML = "<font style='color:#0000ff'>已接受预订</font>";
+				}else{
+					if("msg" in obj_data){
+						alert(obj_data.msg);
+					}else{
+						alert("处理失败");
+					}
+				}
+			}
+		});
+	}
+	//显示拒绝原因弹框
+	this.show_state = function(id) {
+		this.refuse_id = id;
+		var obj = kj.obj('#id_state_box');
+		if(obj) {
+			this.state_html = obj.innerHTML;
+			kj.remove(obj);
+		}
+		kj.dialog({'html':this.state_html,'id':'state_show','type':'html','title':'请输入拒绝理由','w':300,'h':200,'showbtnmax':false});
+	}
+	this.refuse_len = function() {
+		var cont = kj.obj("#id_refuse_for").value;
+		var len = 50 - cont.length;
+		if(len<0) kj.obj("#id_refuse_for").value = cont.substr(0,50);
+		kj.set("#id_refuse_len","innerHTML" , len);
+	}
+	this.refuse = function() {
+		var id = this.refuse_id;
+		if(id<1) {
+			alert("没有选择要拒绝的预订");
+			return;
+		}
+		this.refuse_id = 0;
+		var beta = kj.obj("#id_refuse_for").value;
+
+		kj.ajax.get("{fun_get::url(array('app_act'=>'refuse','id'=>''))}&id="+id+"&beta="+beta,function(data){
+			var obj_data = kj.json(data);
+			if(obj_data.isnull) {
+				alert("处理失败");
+			} else {
+				if('code' in obj_data && obj_data.code=='0') {
+					kj.dialog.close('#winstate_show');
+					kj.obj("#id_btn_" + obj_data.id).innerHTML = "<font style='color:#ff0000'>已拒绝预订</font>";
+				}else{
+					if("msg" in obj_data){
+						alert(obj_data.msg);
+					}else{
+						alert("处理失败");
+					}
+				}
+			}
+		});
+	}
+	//获取新订单
+	this.refresh = function() {
+		kj.ajax.get("{fun_get::url(array('app_act'=>'getnew','id'=>''))}&id="+this.getnew_id,function(data){
+			if(data) {
+				var id = "id_refresh_" + thisjs.new_id;
+				kj.obj("#id_refresh_box").innerHTML = "<div style='float:left' id='" + id + "_copy'>" + data + "</div></div>";
+				kj.obj("#id_list_cont").innerHTML = "<div style='float:left;height:1px;overflow:hidden' id='" + id + "'>" + data + "</div>" + kj.obj("#id_list_cont").innerHTML;
+				kj.set(id , "style.height" , '0px');
+				thisjs.timeout(kj.h("#"+id+"_copy"));
+			}
+			thisjs.getnew_id = thisjs.new_id;
+			kj.hide("#id_newtips_box");
+		});
+	}
+	//显示效果
+	this.timeout = function(h) {
+		var id = "#id_refresh_" + thisjs.new_id;
+		var h2 = kj.h(id) + 10;
+		if(h2 < h) {
+			kj.set(id , "style.height" , h2 + 'px');
+			window.setTimeout("thisjs.timeout(" + h + ")" , 10);
+		} else {
+			kj.set(id , "style.height" , (h+60)+"px");
+			window.setTimeout("thisjs.flash_time('" + id + "',10)" , 10);
+		}
+	}
+	//闪烁效果
+	this.flash_time = function(id , num) {
+		var val = num%2;
+		if(val == 1) {
+			kj.obj(id).style.backgroundColor = "#f8f8f8";
+		} else {
+			kj.obj(id).style.backgroundColor = "";
+		}
+		if(num>0) {
+			num--;
+			window.setTimeout("thisjs.flash_time('" + id + "',"+num+")" , 300);
+		}
+	}
+	//查看是否有新订单
+	this.isnew = function(id,num) {
+		kj.ajax.get("{fun_get::url(array('app_act'=>'isnew','id'=>''))}&id="+this.new_id,function(data){
+			var obj_data = kj.json(data);
+			if('num' in obj_data && obj_data.num!='0') {
+				thisjs.new_id = obj_data.newid;
+				thisjs.show_new(obj_data.num);
+				//铃声
+				kj.obj("#id_ding_music").innerHTML = '<embed src="{$temp_url}ding.wav" hidden="true" border="0" width="20" height="20" autostart="true" loop="false">';
+			}
+		});
+	}
+	this.show_new = function(num) {
+		var obj = kj.obj("#id_newtips_box");
+		obj.style.display="";
+		kj.obj("#id_newtips_info").innerHTML = "收到 <font style='color:#0000ff;font-size:14px;font-weight:bold'>" + num + "</font> 份新订单";
+		var h = document.documentElement.clientHeight;
+		obj.style.top = h +"px";
+		var w = document.documentElement.clientWidth - kj.w("#id_newtips_box");
+		obj.style.left = w +"px";
+		this.show_flash(0);
+	}
+	this.show_flash = function(h) {
+		var obj = kj.obj("#id_newtips_box");
+		var h2 = kj.h("#id_newtips_box");
+		if(h>h2) h = h2;
+		obj.style.top = (document.documentElement.clientHeight - h) +"px";
+		if(h < h2) {
+			h += 10;
+			window.setTimeout("thisjs.show_flash("+h+")" , 100);
+		}
+	}
+
+}
+kj.onload(function(){
+	//定时间检测，是否有新单
+	window.setInterval('thisjs.isnew()',5000);
+});
+</script>
+<div id="id_state_box" style="display:none">
+	<div style="float:left;padding:10px 0px 0px 10px;line-height:30px">
+		<textarea name="refuse_for" id="id_refuse_for" cols="30" rows="5" maxlength=50 onkeyup="thisjs.refuse_len();"></textarea><br>还可以输入<font color="#ff8800" id="id_refuse_len">50</font>个字<br>
+		<input type="button" name="btn_state_ok" value="确定" onclick="thisjs.refuse();">&nbsp;&nbsp;<input type="button" name="btn_state_cancel" value="取消" onclick="kj.dialog.close('#winstate_show');">
+	</div>
+</div>
+<div id="id_newtips_box" class='cart_float' style="display:none;background:#ffffff">
+	<div class="cart_box">
+		<div class="x_info a1" id="id_newtips_info"></div>
+		<div class="x_btn"><input type="button" name="btn_new" value="查看" class="btn_bg1" onclick="thisjs.refresh();"></div>	
+	</div>
+</div>
+<div id="id_refresh_box" style="position:absolute;top:-20000px;background:#ffffff;border:1px #000000 solid"></div>
+<div id="id_ding_music" style="width:0px;height:0px;float:left;"></div>
+</body>
+</html>

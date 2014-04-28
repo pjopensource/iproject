@@ -1,0 +1,45 @@
+{include(header)}
+<div class="listall">
+	{foreach($shop_list["list"]  as $item)}
+		<table><tr>
+			<td class='x1'><a href="?app_act=shop&id={$item['shop_id']}" style="color:#666"><img src = "{if(empty($item['shop_pic_small']))}{$temp_url}/images/nopic.png{else}{$item['shop_pic_small']}{/if}"></a></td>
+			<td class="x2">
+			<li><a href="?app_act=shop&id={$item['shop_id']}" style="color:#666">{$item['shop_name']}</a></li>
+			<li style="color:#555;font-size:12px">{$item['extend']['arrivedelay']}分钟送达/{$item['shop_dispatch_price']}元起送</li>
+			<li style="color:#555;font-size:12px">{if(empty($item['shop_addprice']))}免费配送{else}配送费：{$item['shop_addprice']}元/次{/if}</li>
+			<li>
+			{if($item['shop_state']==-1)}
+			<span class="state_bg2">休息</span>
+			{else}
+				{set $arr_opentime=tab_meal_shop::get_opentime($item['shop_id'])}
+				{if($arr_opentime['nowindex']>0)}
+					<span class="state_bg1">营业</span>
+				{else if($arr_opentime['havenext']==1)}
+					<span class="state_bg3">即将开始</span>
+				{else}
+					<span class="state_bg3">明天继续</span>
+				{/if}
+			{/if}
+			{if($item['iscollect'])}<span class="collect2 id_collect_{$item['shop_id']}" onclick="jsheader.collect_cancel({$item['shop_id']});" title="点击取消收藏">已收藏</span>{else}<span class="collect1 id_collect_{$item['shop_id']}" onclick="jsheader.collect({$item['shop_id']});">收藏</span>{/if}
+			</li>
+			<li>
+			{if(isset($act_info['method']['id_'.$item['shop_id']]))}
+				{foreach($act_info['method']['id_'.$item['shop_id']] as $act_item=>$act)}
+					{if($act['id']==1)}
+					<img src="images/act_3.png" title="{$act['title']}">&nbsp;
+					{else if($act['id']==2)}
+					<img src="images/act_1.png" title="{$act['title']}">&nbsp;
+					{else if($act['id']==3 || $act['id']==4)}
+					<img src="images/score.png" title="{$act['title']}">&nbsp;
+					{else if($act['id']==5 || $act['id']==6)}
+					<img src="images/act_4.png" title="{$act['title']}">&nbsp;
+					{/if}
+				{/foreach}
+			{/if}			
+			</li>
+			</td>
+			<td class="x3"><a href="{cfg:(dirpath,base)}/?app_act=shop&id={$item['shop_id']}"><img src="images/arrow1.png"></a></td>
+		</table>
+	{/foreach}
+</div>
+{include(footer)}

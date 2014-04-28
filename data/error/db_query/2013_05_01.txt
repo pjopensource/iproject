@@ -1,0 +1,372 @@
+===============2013-05-01 12:31:04===================
+MySQL Query:insert into kj_act_gift_record(record_user_id,record_gift_id,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address) values('1','3','5','2013-05-01 12:31:04','1','127.0.0.1','ddd','dd','ddd') <br /> MySQL Error:Unknown column 'record_linkname' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app=act.gift&app_act=view&id=3
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => POST
+QUERY_STRING => app_ajax=1&app=act.gift&app_act=change&id=3
+-------------------GET---------------------
+app_ajax=>1
+app=>act.gift
+app_act=>change
+id=>3
+-------------------POST---------------------
+num=>1
+linkname=>ddd
+tel=>dd
+address=>ddd
+verifycode=>ccvc
+
+===============2013-05-01 15:05:37===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:06:24===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:06:50===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:07:12===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:11:33===================
+MySQL Query:SELECT Array FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'Array' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:11:57===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:13:35===================
+MySQL Query:SELECT record_id,record_user_id,user_name,record_gift_id,gift_name,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address FROM kj_act_gift_record limit 0,10 <br /> MySQL Error:Unknown column 'user_name' in 'field list' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift.record
+-------------------GET---------------------
+app_module=>act
+app=>gift.record
+-------------------POST---------------------
+
+===============2013-05-01 15:39:43===================
+MySQL Query:update kj_act_gift_record set record_send_time='1367393983' where id in(1) <br /> MySQL Error:Unknown column 'id' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app_module=act&app=gift.record
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app=gift.record&app_module=act&app_act=send&id=1
+-------------------GET---------------------
+app_ajax=>1
+app=>gift.record
+app_module=>act
+app_act=>send
+id=>1
+-------------------POST---------------------
+
+===============2013-05-01 16:14:17===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where (record_linkname like '%admin%' or record_linktel='admin' or record_address like '%admin' or record_user_id in(1)) <br /> MySQL Error:Unknown column 'record_linktel' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app_module=act&app=gift.record
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:14:17===================
+MySQL Query:SELECT record_id,record_user_id,record_gift_id,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address,record_send_time,record_receive_time FROM kj_act_gift_record where (record_linkname like '%admin%' or record_linktel='admin' or record_address like '%admin' or record_user_id in(1)) limit 0,10 <br /> MySQL Error:Unknown column 'record_linktel' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app_module=act&app=gift.record
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:14:38===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where (record_linkname like '%admin%' or record_linktel='admin' or record_address like '%admin' or record_user_id in(1)) <br /> MySQL Error:Unknown column 'record_linktel' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+-------------------POST---------------------
+
+===============2013-05-01 16:15:37===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where (record_linkname like '%admin%' or record_tel='admin' or record_address like '%admin'% or record_user_id in(1)) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% or record_user_id in(1))' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+-------------------POST---------------------
+
+===============2013-05-01 16:15:37===================
+MySQL Query:SELECT record_id,record_user_id,record_gift_id,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address,record_send_time,record_receive_time FROM kj_act_gift_record where (record_linkname like '%admin%' or record_tel='admin' or record_address like '%admin'% or record_user_id in(1)) limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% or record_user_id in(1)) limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+-------------------POST---------------------
+
+===============2013-05-01 16:15:58===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where (record_linkname like '%admin%' or record_tel='admin' or record_address like '%admin'% or record_user_id in(1)) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% or record_user_id in(1))' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=admin&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=admin
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>admin
+-------------------POST---------------------
+
+===============2013-05-01 16:19:03===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where (record_linkname like '%洁丽雅%' or record_tel='洁丽雅' or record_address like '%洁丽雅%' or record_gift_id in(2)) and record_time >= '2013-05-02' <br /> MySQL Error:Unknown column 'record_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=%E6%B4%81%E4%B8%BD%E9%9B%85&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=%E6%B4%81%E4%B8%BD%E9%9B%85&s_time1=2013-05-02&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>洁丽雅
+s_time1=>2013-05-02
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:19:03===================
+MySQL Query:SELECT record_id,record_user_id,record_gift_id,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address,record_send_time,record_receive_time FROM kj_act_gift_record where (record_linkname like '%洁丽雅%' or record_tel='洁丽雅' or record_address like '%洁丽雅%' or record_gift_id in(2)) and record_time >= '2013-05-02' limit 0,10 <br /> MySQL Error:Unknown column 'record_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=&s_key=%E6%B4%81%E4%B8%BD%E9%9B%85&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_key=%E6%B4%81%E4%B8%BD%E9%9B%85&s_time1=2013-05-02&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_key=>洁丽雅
+s_time1=>2013-05-02
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:19:10===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift_record where record_time=0 <br /> MySQL Error:Unknown column 'record_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_send_time=1&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_send_time=>1
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:19:10===================
+MySQL Query:SELECT record_id,record_user_id,record_gift_id,record_score,record_datetime,record_num,record_ip,record_linkname,record_tel,record_address,record_send_time,record_receive_time FROM kj_act_gift_record where record_time=0 limit 0,10 <br /> MySQL Error:Unknown column 'record_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift.record&app_module=act&app_act=default&page=
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift.record&app_module=act&app_act=default&page=&s_send_time=1&url_pagesize=10
+-------------------GET---------------------
+app=>gift.record
+app_module=>act
+app_act=>default
+page=>
+s_send_time=>1
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:42:25===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift where gift_start_time <= '2013-05-02' and gift_end_time >= '2013-05-14 23:59:59' <br /> MySQL Error:Unknown column 'gift_start_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift&app_module=act&app_act=default&page=&s_state=-999&s_group=%E9%A3%9F%E5%93%81&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift&app_module=act&app_act=default&page=&s_time1=2013-05-02&s_time2=2013-05-14&s_state=-999&url_pagesize=10
+-------------------GET---------------------
+app=>gift
+app_module=>act
+app_act=>default
+page=>
+s_time1=>2013-05-02
+s_time2=>2013-05-14
+s_state=>-999
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:42:25===================
+MySQL Query:SELECT gift_id,gift_name,gift_total,gift_total_day,gift_num,gift_num_today,gift_time,gift_starttime,gift_endtime,gift_state,gift_group FROM kj_act_gift where gift_start_time <= '2013-05-02' and gift_end_time >= '2013-05-14 23:59:59' limit 0,10 <br /> MySQL Error:Unknown column 'gift_start_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift&app_module=act&app_act=default&page=&s_state=-999&s_group=%E9%A3%9F%E5%93%81&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift&app_module=act&app_act=default&page=&s_time1=2013-05-02&s_time2=2013-05-14&s_state=-999&url_pagesize=10
+-------------------GET---------------------
+app=>gift
+app_module=>act
+app_act=>default
+page=>
+s_time1=>2013-05-02
+s_time2=>2013-05-14
+s_state=>-999
+url_pagesize=>10
+-------------------POST---------------------
+
+===============2013-05-01 16:42:51===================
+MySQL Query:SELECT count(1) as num FROM kj_act_gift where gift_start_time <= '2013-05-02' and gift_end_time >= '2013-05-14 23:59:59' <br /> MySQL Error:Unknown column 'gift_start_time' in 'where clause' <br /> MySQL Errno:1054
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app=gift&app_module=act&app_act=default&page=&s_time1=2013-05-02&s_time2=2013-05-14&s_state=-999&url_pagesize=10
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift&app_module=act&app_act=default&page=&s_time1=2013-05-02&s_time2=2013-05-14&s_state=-999
+-------------------GET---------------------
+app=>gift
+app_module=>act
+app_act=>default
+page=>
+s_time1=>2013-05-02
+s_time2=>2013-05-14
+s_state=>-999
+-------------------POST---------------------

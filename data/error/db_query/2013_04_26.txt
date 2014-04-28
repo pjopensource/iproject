@@ -1,0 +1,589 @@
+===============2013-04-26 14:17:31===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 14:34:36===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:35:35===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:36:04===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:36:33===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:36:52===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:37:05===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:38:03===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:41:03===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:41:25===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 14:41:26===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:57:49===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 14:57:49===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 14:58:13===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:00:05===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:00:05===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:00:08===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:00:09===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:00:18===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:00:19===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:00:38===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:00:38===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:00:40===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:00:41===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:02:24===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:02:24===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:02:25===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:02:25===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:02:27===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:02:27===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:02:29===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:02:29===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:03:00===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:03:00===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:03:01===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/?app_act=shop&id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:03:01===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:04:02===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:04:02===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:11:57===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app=member&app_act=payok&id=105
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:11:57===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:13:21===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:13:22===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in(select order_shop_id,max(order_addtime) as addtime from kj_meal_order where order_user_id='1' group by order_shop_id order by addtime) <br /> MySQL Error:Operand should contain 1 column(s) <br /> MySQL Errno:1241
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-04-26 15:19:21===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:23:16===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-26 15:25:53===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=cart&shop_id=1
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------

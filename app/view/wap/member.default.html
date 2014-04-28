@@ -1,0 +1,26 @@
+{include(header)}
+<script src="/common/js/kj.page.js"></script>
+	{foreach($order_list['list'] as $item=>$key)}
+	<div class="m_div4">
+		<li class="xtit1">&nbsp;&nbsp;{$item}（{fun_get::weekday($item)}）</li>
+		{foreach($key as $order)}
+			<li>&nbsp;【<a href="index.php?app_act=shop&id={$order['order_shop_id']}" style="color:#888888">{$order_list['shop']['id_'.$order['order_shop_id']]}</a>】&nbsp;{$order['order_name']}/{$order['order_sex']}&nbsp;&nbsp;&nbsp<font style="color:">{$order['addtime']}</font></li>
+			{foreach($order['menu'] as $menu)}
+			<li class="x_2"><span style="float:left;width:80px;overflow:hidden">
+				{set $price=0}
+				{foreach($menu as $item)}
+					{set $price+=$order_list['price']['id_'.$item]}
+					{$order_list['menu']['id_'.$item]['menu_title']}&nbsp;&nbsp;
+				{/foreach}
+				</span><span style="float:left;">￥{$price} × {$order['menunum'][implode(',',$menu)]} = ￥{$order['menunum'][implode(',',$menu)]*$price}</span>
+			</li>
+			{/foreach}
+			<li class="xdot">&nbsp;</li>
+			<li><span class="xtotal">总计：￥{$order['order_total']}{if(!empty($order['order_score_money']))}&nbsp;&nbsp;抵扣：￥{$order['order_score_money']}{/if}{if(!empty($order['order_favorable']))}&nbsp;&nbsp;优惠：￥{$order['order_favorable']}{/if}&nbsp;&nbsp;应付：<font class="txt_redB">￥{$order['order_total_pay']}</font></span></li>
+		{/foreach}
+	</div>
+	{/foreach}
+	<div class="pPage" id="id_pPage" style="margin:5px 0px 10px 0px;height:auto">
+	{$order_list['pagebtns']}
+	</div>
+{include(footer)}

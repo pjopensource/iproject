@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/shop.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<style>
+body{background:#fff}
+</style>
+</head>
+<body style="overflow-x:hidden">
+		<div class="shop1"><img src="images/shop1.gif"> <a href="?app=shop&app_act=info"{if(!in_array(1,$shop_info['progress']))} style="color:#ff8800"{/if}>完善店铺资料</a> <img src="images/arrow.gif"> <a href="?app=shop&app_act=info.extend"{if(!in_array(2,$shop_info['progress']))} style="color:#ff8800"{/if}>设置订餐配置</a> <img src="images/arrow.gif"> <a href="?app_module=shop&app=dispatch"{if(!in_array(3,$shop_info['progress']))} style="color:#ff8800"{/if}>选择配送范围</a> <img src="images/arrow.gif"> <a href="?app_module=shop&app=menu"{if(!in_array(4,$shop_info['progress']))} style="color:#ff8800"{/if}>添加经营菜品</a> <img src="images/arrow.gif"> {if(!empty($shop_info['shop_state']))}<a href="javascript:thisjs.show_state();"{if($shop_info['shop_state']<0)} class="txt_red"{/if} id="id_state_val">{$shop_info['state']}</a>{else}{$shop_info['state']}{/if}</div>
+		<div class="shop2">
+		<li><img src="images/shop2.jpg"> 菜品总量：<span style="color:#ff8800">{$count_info['menu_num']}</span></li>
+		<li><img src="images/shop2.jpg"> 今日菜品：<span style="color:#ff8800">{$count_info['menu_today_num']}</span></li>
+		</div>
+		<div class="shop2">
+		<li><img src="images/shop2.jpg"> 今日订单：<span style="color:#ff8800">{$count_info['order_today']}</span></li>
+		<li><img src="images/shop2.jpg"> 总 金 额：<span style="color:#ff8800">{$count_info['order_money']}</span></li>
+		<li><img src="images/shop2.jpg"> 未 处 理：<span style="color:#ff8800">{$count_info['order_noconfirm']}</span></li>
+		</div>
+		<div class="shop2">
+		<li><img src="images/shop2.jpg"> 回 头 客：<span style="color:#ff8800">{$count_info['user_repeat']}</span></li>
+		<li><img src="images/shop2.jpg"> 新 顾 客：<span style="color:#ff8800">{$count_info['user_new']}</span></li>
+		</div>
+		<div class="shop3">&nbsp;&nbsp;当天订单统计</div>
+		<div class="shop4" id="container">
+		</div>
+<div id="id_state_box" style="display:none">
+{if(!empty($shop_info['shop_state']))}
+	<div style="float:left;padding:10px 0px 0px 10px;line-height:30px">
+		<label><input type="radio" name="shop_state" value="1"{if($shop_info['shop_state']==1)} checked{/if}>营业</label>&nbsp;&nbsp;<label><input type="radio" name="shop_state" value="-1"{if($shop_info['shop_state']==-1)} checked{/if}>休息</label><br><br>
+		<input type="button" name="btn_state_ok" value="设置" onclick="thisjs.state_save();">&nbsp;&nbsp;<input type="button" name="btn_state_cancel" value="取消" onclick="kj.dialog.close('#winstate_show');">
+	</div>
+{/if}
+</div>
+
+<script src="/components/report/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: {$report['sub']}
+            },
+            yAxis: {
+                title: {
+                    text: '订单量'
+                }
+            },
+            tooltip: {
+                enabled: false,
+                formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y;
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: '今日订单量统计',
+                data: {$report['data']}
+            }]
+        });
+    });
+    
+});
+</script>
+<script src="/components/report/highcharts.js"></script>
+<script>
+var thisjs = new function() {
+	//状态显示框
+	this.state_html = '';
+	//显示状态框
+	this.show_state = function() {
+		var obj = kj.obj('#id_state_box');
+		if(obj) {
+			this.state_html = obj.innerHTML;
+			kj.remove(obj);
+		}
+		kj.dialog({'html':this.state_html,'id':'state_show','type':'html','title':'店铺运营状态','w':300,'h':200,'showbtnmax':false});
+	}
+	//修改密码
+	this.state_save = function() {
+		var val = '';
+		var obj = kj.obj(":shop_state");
+		for(var i = 0 ; i < obj.length; i++) {
+			if(obj[i].checked) {
+				val = obj[i].value;
+			}
+		}
+		this.stateval = val;
+		kj.ajax("?app_module={$app_module}&app={$app}&app_act=state_save&val=" + val , function(data) {
+			var obj = kj.json(data);
+			if('isnull' in obj) {
+				alert("设置状态失败");return;
+			}
+			if(obj.code=='0') {
+				kj.dialog.close("#winupdate_pwd");
+				kj.alert.show('设置成功' , function(){thisjs.set_state();});
+			} else {
+				if('msg' in obj) {
+					alert(obj.msg);
+				} else {
+					alert("设置状态失败");
+				}
+			}
+		});
+	}
+	this.set_state = function() {
+		if(this.stateval=='1') {
+			kj.obj("#id_state_val").innerHTML = "运营中";
+			kj.delClassName("#id_state_val" , "txt_red");
+		} else {
+			kj.obj("#id_state_val").innerHTML = "暂停运营";
+			kj.addClassName("#id_state_val" , "txt_red");
+		}
+		kj.dialog.close("#winstate_show");
+	}
+}
+</script>
+</body>
+</html>

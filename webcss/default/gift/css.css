@@ -1,0 +1,66 @@
+.gift{float:left;width:980px;background:#fff}
+.glist{float:left;width:290px;border:1px #CCCCCC solid;margin:10px 7px;padding:10px}
+.glist li{float:left;width:290px}
+.glist .xtit1{font-weight:bold;font-size:16px;height:20px;overflow:hidden;line-height:20px}
+.glist .xpic{border:1px #A77E65 solid;width:278px;float:left;margin-top:10px;overflow:hidden;height:180px;text-align:center;padding:5px;vertical-align:middle;line-height:180px}
+.glist .xpic img{max-width:276px;max-height:180px;_zoom:expression(function(x){if(x.width>276){x.width=276;}if(x.height>180){x.height=180;}}(this));vertical-align:middle}
+.glist .xbtn{float:left;background:url(btn1.gif) no-repeat;width:280px;height:44px;font-weight:bold;color:#fff;padding:3px 0px 0px 10px;overflow:hidden}
+.gleft{float:left;width:198px;border:1px #CCCCCC solid;padding:5px;margin:10px}
+.gleft li{float:left;width:198px;padding:5px 0px 3px 0px;border-bottom:1px #cccccc dotted}
+.gleft .xtit{border-top:1px #A77E65 solid;border-bottom:1px #A77E65 solid;color:#A77E65;font-weight:bold;padding:5px 0px 3px 0px}
+.gleft .xpic{float:left;width:50px;padding:1px;border:#CCCCCC 1px solid;margin:0px}
+.gleft .xpic img{width:50px;height:50px}
+.gleft span{float:left;width:136px;margin-left:8px}
+.gleft .xname{font-weight:bold;}
+.gleft .xname a{color:#A77E65}
+.gleft .xscore{color:#555555;padding-top:2px}
+.gleft .xnum{width:116px;padding:3px 0px 3px 20px;background:url(cart.gif) no-repeat left center}
+
+.gright{float:left;width:750px;margin-top:10px;color:#555}
+.gright .xpic{float:left;width:290px;height:290px;border:1px #ccc solid;padding:10px;margin-right:10px;line-height:290px}
+.gright .xpic table{float:left;width:290px;padding:0px}
+.gright .xpic td{width:290px;height:290px;text-align:center;padding:0px}
+.gright .xpic img{max-width:290px;max-height:290px;_zoom:expression(function(x){if(x.width>290){x.width=290;}if(x.height>290){x.height=290;}}(this))}
+.gright .xtit{float:left;width:420px;background:url(dot.gif) repeat-x bottom;padding:5px 0px 3px 0px;font-size:18px;font-weight:bold}
+.gright .xinfo{float:left;width:410px;padding-left:10px;height:160px;background:url(dot.gif) repeat-x bottom}
+.gright .xinfo li{float:left;width:410px;margin:5px 0px 3px 0px}
+.gright .xinfo2{float:left;width:410px;padding-left:10px;height:80px}
+.gright .xinfo2 li{float:left;width:410px;margin:5px 0px 3px 0px}
+.gright .xinfo2 .y1{background:url(cart.gif) no-repeat left center;width:390px;padding-left:20px}
+.gright .xinfo2 .y1 img{cursor:pointer}
+.gright .xinfo2 .y1 input{text-align:center}
+.gright .xtit1{float:left;width:750px;margin:20px 0px 10px 0px;border-top:2px #666666 solid;border-bottom:1px #ccc solid;padding:5px 0px 3px 0px;color:#A77E65;font-weight:bold;font-size:14px}
+.gright .xbtn{float:left;width:410px}
+.gright .xcont{float:left;width:700px;padding:10px;line-height:20px}
+
+.gtitle{float:left;width:970px;background:#fff;padding:5px 0px 3px 10px;color:#333;background:#fff url(../images/dot1.gif) repeat-x 0px 38px}
+.gtitle span{float:left;margin:3px 5px 0px 5px;height:31px;padding-top:4px;text-align:center;cursor:pointer}
+.gtitle .xsel{background:url(collectsel.png) no-repeat center bottom;color:#fff}
+.gtitle .xsel a{float:left;height:23px;background:#808080;color:#fff;text-decoration:none;padding:4px 10px 0px 10px}
+.gtitle .xsel a:hover{height:23px;background:#808080;color:#fff;text-decoration:none;padding:4px 10px 0px 10px}
+.gtitle span a{float:left;height:23px;padding:4px 5px 0px 5px}
+.gtitle span a:hover{height:23px;background:#808080;color:#fff;text-decoration:none;padding:4px 5px 0px 5px}
+
+.ginfo{float:left;width:400px;}
+.ginfo li{float:left;width:400px;padding:8px 0px 5px 0px}
+.ginfo .xcol1{float:left;width:60px;text-align:right}
+.ginfo .xcol2{float:left;width:330px}
+.ginfo .xcol2 .x1{border:1px #000 solid;height:23px;line-height:23px;width:120px;padding:1px}
+.ginfo .xcol2 .x2{border:1px #000 solid;height:23px;line-height:23px;width:300px;padding:1px}
+.ginfo .xcol3{float:left;width:80px}
+.ginfo .xcol3 .x1{border:1px #000 solid;height:23px;line-height:23px;width:60px;padding:1px}
+.ginfo .xcol4{float:left;width:200px}
+
+.mygift{float:left;width:720px;padding:10px 15px}
+.mygift .xtit{width:680px;line-height: 40px;float: left;height: 40px;border-top: 2px solid #CCCCCC;border-bottom: 2px solid #CCCCCC;background-color: #f8f8f8;margin-top:10px}
+.mygift .xtit span{width:50px;height:30px;float:left;text-align:center;}
+.mygift .xlist{width: 680px;height: 30px;float: left;border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #CCCCCC;}
+.mygift .xlist span{float:left;height:20px;line-height:20px;float:left;text-align:center;border-right: 1px solid #CCCCCC;margin-top: 5px;}
+.mygift .xlist .x1 {width: 150px;color: #999999;}
+.mygift .xlist .x2 {width: 100px;color:#FF3300;font-weight: bold;}
+.mygift .xlist .x3 {width: 100px;color: #00bb66;font-weight: bold;}
+.mygift .xlist .x4 {width: 315px;font-weight: bold;color: #888888;padding-left: 10px;border-right:0px}
+.mygift .xlist .x5 {width: 100px;font-weight: bold;border-right: 1px solid #CCCCCC;}
+.mygift .xlist .x6 {width: 215px;color: #888888;padding-left: 10px;;border-right:0px;text-align:left}
+
+.gpic{float:left;width:980px}

@@ -1,0 +1,227 @@
+===============2013-04-25 17:55:48===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:56:38===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:56:55===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:58:38===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:59:08===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:59:10===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 17:59:23===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj=1) <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(shop_state>0 or shop_state=-1) and shop_isdel=0 and (shop_id in(2,1) or shop_tj' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:44:56===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => 
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:45:18===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/index.php?app_act=area
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:45:43===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:45:52===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:46:57===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:47:08===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:47:28===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:48:43===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:50:12===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:51:22===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:52:08===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------
+
+===============2013-04-25 18:52:40===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where (shop_state>0 or shop_state=-1) and shop_isdel=0 and shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => 
+-------------------GET---------------------
+-------------------POST---------------------

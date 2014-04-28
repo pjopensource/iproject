@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{cfg:(site_title,sys)}-{$thisinfo['article_title']}</title>
+<meta name="keywords" content="{cfg:(keywords,sys)}"/>
+<meta name="description" content="{cfg:(description,sys)}"/>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/css.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<style>
+.metable{float:left;width:100%}
+.metable td{background:#fff}
+.metable .xtitle{float:left;width:100%;border-bottom:1px #ccc dotted;font-size:18px;font-weight:bold;padding:5px 0px 5px 0px;text-align:center}
+.metable .xcont{float:left;width:100%;line-height:22px;margin:10px 0px 10px 0px;font-size:14px;color:#333}
+</style>
+</head>
+<body>
+{include(header)}
+<table class="metable">
+<tr><td valign="top" width="240px">
+<div class="right" id="id_right" style="padding-bottom:20px">
+	<li class="pic"><span><a href="?app_act=shop&id={$shopinfo['shop_id']}"><img src="images/logo.png"></a>&nbsp;</span>{if($shopinfo['iscollect'])}<font onclick="jsheader.collect_cancel({$shopinfo['shop_id']},this)" class="xcollect collect2 id_collect_{$shopinfo['shop_id']}" title="点击取消收藏" style="left:70px">已收藏</font>{else}<font onclick="jsheader.collect({$shopinfo['shop_id']},this)" class="xcollect collect1 id_collect_{$shopinfo['shop_id']}">收藏</font>{/if}</li>
+	<li class="info"><span class='xtit'><a href="?app_act=shop&id={$shopinfo['shop_id']}">{$shopinfo['shop_name']}</a></span><span><font color="#666666">餐品：</font>{$shopinfo['menunum']}</span><span><a href="javascript:jsheader.comment_shop('{$shopinfo['shop_id']}')"><font color="#666666">评论：</font>{$shopinfo['commentnum']}</a></span></li>
+	<li class="tit"><span style="float:left">活动公告</span><a href="?app_act=shop.news&shop_id={$shop_id}&channel_key=activitie" style="float:right;margin-right:10px;font-size:12px;color:#ff8800;font-weight:200">更多</a></li>
+	<li class="li">
+	{foreach($arr_activitie as $item)}
+	<a href="?app_act=shop.view&id={$item['article_id']}">{$item['article_title']}</a>
+	{/foreach}
+	</li>
+	{if(!empty($shopinfo['shop_desc']))}
+	<li class="tit">店铺简介</li>
+	<li>{$shopinfo['shop_desc']}...<a href="?app_act=shop.info&shop_id={$shopinfo['shop_id']}" style="color:#ff8800">[查看详细]</a></li>
+	{/if}
+</div>
+</td><td valign="top">
+<div class="xtitle">{$thisinfo['article_title']}</div>
+<div class="xcont">
+ {$thisinfo['article_content']}
+</div>
+</td></tr></table>
+{include(footer)}
+<script src="{cfg:(dirpath,base)}/common.php?app=article&app_act=hits&app_ajax=1&id={$thisinfo['article_id']}"></script>
+</body>
+</html>

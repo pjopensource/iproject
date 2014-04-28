@@ -1,0 +1,232 @@
+{include(header)}
+<div class="div3">
+	<ul class="x1">
+	<li class="pic"><span><img src="{$shopinfo['shop_pic']}">&nbsp;</span><a href="javascript:" class="xcollect">收藏</a></li>
+	</ul>
+	<ul class="x2">
+	<li class="xtit">{$shopinfo['shop_name']}</li>
+	<li><font color="#666666">餐品：</font>{$shopinfo['menunum']}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=comment.shop&shop_id={$shop_id}"><font color="#666666">评论：</font>{$shopinfo['commentnum']}</a></li>
+	<li>起送价格：￥{$shopinfo['shop_dispatch_price']}</li>
+	<li>预计{$shopinfo['extend']['arrivedelay']}分钟到达</li>
+	</ul>
+</div>
+<div class="div4"><span>本店推荐</span></div>
+<div class="div5">
+{foreach($arr_menu["tj"] as $menu)}
+<ul>
+<li class="x1">{if($shopinfo['shop_state']>0 && $cfg_opentime['nowindex']>0 && $menu['num']>0)}<a href="javascript:thisjs.cart_add({id:'{$menu['menu_id']}',name:'{$menu['menu_title']}',pic:'{$menu['menu_pic_small']}',price:'{$menu['menu_price']}',type:'{$menu['menu_type']}'});"><img src="{$menu['menu_pic_small']}"></a>{else}<img src="{$menu['menu_pic_small']}">{/if}</li>
+<li class="x2"><font class="xtit">{$menu['menu_title']}</font><br>主料：{$menu['menu_intro']}<br>评论：<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=comment&menu_id={$menu['menu_id']}&shopid={$shop_id}">{$menu['menu_comment_num']}条</a><br><span style="color:#ff8800"><font style="font-size:16px">￥{$menu['price_int']}</font>.{$menu['price_float']}</span></li>
+<li class="x3">
+{if($shopinfo['shop_state']>0)}
+	{if($cfg_opentime['nowindex']>0)}
+		{if($menu['num']<1)}
+		<input type="button" name="btnse" value="今日售完" class="button1x">
+		{else}
+		<a href="javascript:thisjs.cart_add({id:'{$menu['menu_id']}',name:'{$menu['menu_title']}',pic:'{$menu['menu_pic_small']}',price:'{$menu['menu_price']}',type:'{$menu['menu_type']}'});"><img src="images/buy1.png"></a>
+		{/if}
+	{else if($cfg_opentime['havenext']==1)}
+	<input type="button" name="btnse" value="即将开始" class="button4x">
+	{else}
+	<input type="button" name="btnse" value="明天继续" class="button4x">
+	{/if}
+{else}
+	<input type="button" name="btnse" value="休息" class="button4x">
+{/if}
+</li>
+</ul>
+{/foreach}
+</div>
+{foreach($arr_menu["list"] as $item)}
+<div class="div4"><span>{$item["name"]}</span></div>
+<div class="list2">
+	{foreach($item['list'] as $menu)}
+		<li{if($shopinfo['shop_state']>0 && $menu['num']>0 && $cfg_opentime['nowindex']>0)} onclick="thisjs.cart_add({id:'{$menu['menu_id']}',name:'{$menu['menu_title']}',pic:'{$menu['menu_pic_small']}',price:'{$menu['menu_price']}',type:'{$menu['menu_type']}'});"{/if} id="id_li_{$menu['menu_id']}">
+		<span id="id_title_{$menu['menu_id']}">{$menu['menu_title']}</span>
+		{if($cfg_opentime['nowindex']>0)}
+			{if($menu['num']<1)}<span class="x_off">卖完</span>{/if}
+		{else if($cfg_opentime['havenext']==1)}
+			<span class="x_off">即将开始</span>
+		{else}
+			<span class="x_off">明天继续</span>
+		{/if}
+		<span class="price">￥{$menu['price_int']}{if(intval($menu['price_float'])>0)}.{$menu['price_float']}{/if}</span></li>
+		<li class="xcomment">(<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=comment&menu_id={$menu['menu_id']}&shopid={$shop_id}"><font color="#ff0000">{$menu['menu_comment_num']}</font>评论</a>)</li>
+	{/foreach}
+</div>
+{/foreach}
+<script src="/common/js/kj.dialog.js"></script>
+<script>
+var thisjs = new function() {
+//配置信息:minprice = 单份订单最小价格 , 单份订单最多菜品数 , 单份订单最多菜数(不算饭与汤)
+	this.cfg = {minprice:5 ,maxnum:6 , maxcainum:4 , mintotal:10};
+	//默认加载米饭
+	{if(isset($menu_rice['menu_id']))}
+		this.rice = {id:'{$menu_rice['menu_id']}',name:'{$menu_rice['menu_title']}',pic:'{$menu_rice['menu_pic_small']}',price:'{$menu_rice['menu_price']}',type:'{$menu_rice['menu_type']}'};
+	{else}
+		this.rice = false;
+	{/if}
+	this.cart = [];
+	this.index = -1;
+	this.total = 0;
+	this.cart_add = function(o) {
+		var obj = kj.obj("#id_cart_box");
+		var obj_cart_num = kj.obj("#id_cart_num_" + o.id);
+		if(obj_cart_num) {
+			var obj_cart_price = kj.obj("#id_cart_price_" + o.id);
+			obj_cart_num.value = kj.toint(obj_cart_num.value) + 1;
+			obj_cart_price.innerHTML = "￥"+kj.toint(obj_cart_num.value) * o.price;
+		} else {
+			var obj_li=document.createElement("li");
+			obj_li.id = "id_cart_" + o.id;
+			obj_li.innerHTML = '<input type="hidden" name="cartid[]" value="'+o.id+'"><input type="hidden" name="price[]" id="id_price_'+o.id+'" value="'+o.price+'"><span class="col1">'+o.name+'</span><span class="col2"><input type="text" name="num'+o.id+'[]" value="1" id="id_cart_num_'+o.id+'" class="pTxt4" onfocus="this.select()" onkeyup="thisjs.change_num('+o.id+')"></span><span class="col3" id="id_cart_price_'+o.id+'">￥'+kj.toint(o.price)+'</span><span class="col4" onmouseover="this.className=\'col5\'" onmouseout="this.className=\'col4\'" title="删除" onclick="thisjs.del('+o.id+')">&nbsp;</span>';
+			obj.appendChild(obj_li);
+		}
+		this.refresh_price();
+		this.show_cartbox();
+	}
+
+
+	//删除选中菜品
+	this.del = function(id) {
+		kj.remove("#id_cart_"+id);
+		this.refresh_price();
+	}
+	//改变数量
+	this.change_num = function(id) {
+		var obj_cart_num = kj.obj("#id_cart_num_" + id);
+		if(obj_cart_num) {
+			var obj_cart_price = kj.obj("#id_cart_price_" + id);
+			var obj_price = kj.obj("#id_price_"+id);
+			if(obj_cart_price) obj_cart_price.innerHTML = kj.toint(obj_cart_num.value) * kj.toint(obj_price.value);
+			this.refresh_price();
+		}
+	}
+	//刷新价格
+	this.refresh_price = function() {
+		var obj = kj.obj("#id_cart_box .col3");
+		var price = 0;
+		for(var i = obj.length-1 ; i >=0 ; i--) {
+			price += kj.toint(obj[i].innerHTML);
+		}
+		kj.obj("#id_cart_info").innerHTML = '共 <font style="font-size:14px;color:#FF821E">'+obj.length+'</font> 份，合计：<font style="font-size:20px;color:#FF821E">￥'+price+'</font>';
+		this.total = price;
+		return price;
+	}
+	//清空
+	this.clear = function() {
+		var obj = kj.obj("#id_cart_box");
+		obj.innerHTML = '';
+		this.refresh_price();
+	}
+	this.cart_init = function() {
+		{foreach($arr_menu['cart'] as $cart)}
+			{foreach($cart as $menu)}
+				{if(isset($arr_menu["cart_menu"]["id_".$menu]))}
+				this.cart_add({id:'{$arr_menu["cart_menu"]["id_".$menu]['menu_id']}',name:'{$arr_menu["cart_menu"]["id_".$menu]['menu_title']}',pic:'{$arr_menu["cart_menu"]["id_".$menu]['menu_pic_small']}',price:'{$arr_menu["cart_menu"]["id_".$menu]['menu_price']}',type:'{$arr_menu["cart_menu"]["id_".$menu]['menu_type']}'});
+				is_new = true;
+				{/if}
+			{/foreach}
+		{/foreach}
+	}
+	//提交，保存到cookie
+	this.cart_submit = function() {
+		var obj = kj.obj("#id_cart_box li");
+		//检查是否已点餐
+		if(obj.length<1) {
+			alert("温馨提示：您的购物车是空的，请先点餐！");
+			return false;
+		}
+		//点餐价格是否达到起送价
+		if(this.mintotal>0 && this.total < this.mintotal) {
+			alert("温馨提示：由于人力成本等问题，外卖定餐需起送不得低于"+this.mintotal+"元，不便之处还请您多多包涵！");
+			return false;
+		}
+		var i,val,j,arr_1=[];
+		obj = kj.obj("#id_cart_box :cartid[]");
+		for(i = 0 ; i < obj.length ; i++ ) {
+			val = kj.toint(kj.obj("#id_cart_num_"+obj[i].value).value);
+			for(j=0;j<val;j++) {
+				arr_1[arr_1.length] = obj[i].value;
+			}
+		}
+		var str = kj.cookie_get("cart_ids");
+		var arr = [];
+		if(str) arr = str.split("||");
+		for(i = 0 ; i < arr.length ; i++) {
+			arr_2 = arr[i].split(":");
+			if(arr_2[0] == '{$shop_id}') {
+				arr.removeat(i);break;
+			}
+		}
+		arr[arr.length] = "{$shop_id}:" + arr_1.join("|");
+		var str_ids = arr.join("||");
+		kj.cookie_set("cart_ids" , str_ids , 24);
+		window.location.href = "{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=cart&shop_id={$shopinfo['shop_id']}";
+
+	}
+
+	this.mouseover = function(id) {
+		var obj = kj.obj("#id_nosel_"+this.orderid);
+		if(obj) obj.className = 'x_nosel';
+		kj.obj("#id_nosel_"+id).className = 'x_sel1';
+		this.orderid = id;
+		kj.addClassName("#id_li_"+id , "x_sel2");
+	}
+	this.mouseout = function(id) {
+		var obj = kj.obj("#id_nosel_"+this.orderid);
+		if(obj) obj.className = 'x_nosel';
+		kj.delClassName("#id_li_"+id , "x_sel2");
+	}
+	this.show_cartbox = function() {
+		var obj = kj.obj('#id_shopbox');
+		if(obj) {
+			this.shopbox_html = obj.innerHTML;
+			kj.remove(obj);
+		}
+		var top = document.body.scrollTop;
+		if(!top)top=document.documentElement.scrollTop;
+		kj.dialog({'html':this.shopbox_html,'id':'shopbox','type':'html','title':'我的饭盒','w':228,'showbtnmax':false,'showbtnclose':false,'showbtnhide':true});
+		kj.set("#winshopbox" , "style.top" , top+"px");
+	}
+}
+</script>
+<div id="id_shopbox" style="display:none">
+	<div class="cart_box">
+		<div class="x_list" id="id_cart_box">
+		</div>
+		<div class="x_info a1" id="id_cart_info"></div>
+		<div class="x_btn"><input type="button" name="btn_ok" value="提交订单" class="btn_bg1" onclick="thisjs.cart_submit();">&nbsp;&nbsp;<input type="button" name="btn_clear" value="清空" class="btn_bg1" onclick="thisjs.clear();">&nbsp;&nbsp;<input type="button" name="btn_continue" value="继续购物" class="btn_bg1" onclick="alert(kj.obj('#winshopbox').style.display);"></div>
+	</div>
+</div>
+{if($shopinfo['shop_state']==-1 || empty($cfg_opentime['list']))}
+<div class="shop_tips" id="id_shop_tips" style="display:none">
+<ul>
+<li><h1>东家有事，暂停营业</h1></li>
+<li style="margin-top:50px"><input type="button" name="btn" value="返回" class="button4" onclick="window.open('?','_self');">&nbsp;&nbsp;<input type="button" name="btn" value="看一下" class="button4x" onclick="kj.event('#id_bglayer','click');"></li>
+<ul>
+</div>
+{else if($cfg_opentime['nowindex']<=0)}
+<div class="shop_tips" id="id_shop_tips" style="display:none">
+<ul>
+<li><h1>送餐时间</h1>
+	{foreach($shopinfo['extend']['arr_opentime'] as $item=>$key)}
+	<h2>{$key}</h2>
+	{/foreach}
+</li>
+<li style="margin-top:20px"><input type="button" name="btn" value="返回" class="button4" onclick="window.open('?','_self');">&nbsp;&nbsp;<input type="button" name="btn" value="看一下" class="button4x" onclick="kj.event('#id_bglayer','click');"></li>
+<ul>
+</div>
+{/if}
+<script>
+{if($shopinfo['shop_state']==-1 || $cfg_opentime['nowindex']<=0)}
+kj.bglayer('id_shop_tips','#000',0.5);
+kj.show("#id_shop_tips");
+var lng_left = kj.w()/2-kj.w("#id_shop_tips")/2;
+kj.set("#id_shop_tips",'style.left',lng_left+'px');
+{else}
+kj.onload(function(){
+	thisjs.cart_init();
+});
+{/if}
+</script>
+{include(footer)}

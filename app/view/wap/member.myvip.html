@@ -1,0 +1,20 @@
+{include(header)}
+<script src="/common/js/kj.page.js"></script>
+	<div class="m_div3">
+	尊敬的会员：<font class="txt_orangeB">{$this_login_user->name}</font> <br>您当前的等级：<img src="images/vip{$loginuser_level}.png" align="absmiddle">。<br>累计经验值为：<font class="txt_redB">{$loginuser_experience}</font> 点，仅需 <font class="txt_redB">{$loginuser_experience_poor}</font> 点，即可晋升为<font class="txt_orangeB"> V{$loginuser_level_next} </font>会员。
+	</div>
+
+	{set $experience=0}
+	{foreach($action_list["list"] as $item)}
+	<div class="m_div4">
+		<li class="xtit1">{$item["action_addtime"]}</li>
+		<li>收入：+{$item["action_experience"]}</li>
+		<li>累积：{$action_list["experience"]-$experience}</li>
+		<li>详情：{$item["beta"]}</li>
+		{set $experience+=$item["action_experience"]}
+	</div>
+	{/foreach}
+	<div class="pPage" id="id_pPage" style="margin:5px 0px 10px 0px;height:auto">
+	{$action_list['pagebtns']}
+	</div>
+{include(footer)}

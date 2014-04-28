@@ -1,0 +1,22 @@
+{include(header)}
+<script src="/common/js/kj.page.js"></script>
+	{foreach($arr_list['list'] as $item)}
+	<div class="m_div4">
+		<li class="xtit1">&nbsp;&nbsp;时间：{$item["msg_time"]}　IP：{$item["msg_ip"]}</li>
+		<li>姓名：{$item["msg_name"]}</li>
+		<li>电话：{$item["msg_tel"]}</li>
+		<li>邮箱：{$item["msg_email"]}</li>
+		<li><div class="xcont">{$item["msg_cont"]}</div></li>
+		<li><div class="xcont2">{$item["msg_cont"]}</div></li>
+		<li style="text-align:right;color:#ff8800">时间：{$item["msg_time"]}&nbsp;&nbsp;</div>
+	{if(!empty($item["msg_recont"]))}
+		<li><div class="xcont2">{$item["msg_recont"]}</div></li>
+		<li style="text-align:right;color:#ff8800">时间：{$item["msg_retime"]}&nbsp;&nbsp;</div>
+	{/if}
+
+	</div>
+	{/foreach}
+	<div class="pPage" id="id_pPage" style="margin:5px 0px 10px 0px;height:auto">
+	{$arr_list['pagebtns']}
+	</div>
+{include(footer)}

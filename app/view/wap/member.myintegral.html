@@ -1,0 +1,20 @@
+{include(header)}
+<script src="/common/js/kj.page.js"></script>
+	<div class="m_div3">
+	尊敬的会员：<font class="txt_orangeB">{$this_login_user->name}</font> ，您现在累计的积分为：<font class="txt_redB">{$this_login_user->get_score()}</font> 分，可等值抵扣消费金额 <font class="txt_redB">{$score_money}</font> 元。
+	</div>
+	{set $score=0}
+	{foreach($action_list["list"] as $item)}
+	<div class="m_div4">
+		<li class="xtit1">&nbsp;&nbsp;{$item["action_addtime"]}</li>
+		<li>收入：{if($item["action_score"]>0)}+{$item["action_score"]} {else} {$item["action_score"]} {/if}</li>
+		<li>结余：{$action_list["score"]-$score}</li>
+		<li>详情：{$item["beta"]}</li>
+		{set $score+=$item["action_score"]}
+	</div>
+	{/foreach}
+	<div class="pPage" id="id_pPage" style="margin:5px 0px 10px 0px;height:auto">
+	{$action_list['pagebtns']}
+	</div>
+
+{include(footer)}

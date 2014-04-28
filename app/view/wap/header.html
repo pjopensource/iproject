@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{cfg:(site_title,sys)}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="keywords" content="{cfg:(keywords,sys)}"/>
+<meta name="description" content="{cfg:(description,sys)}"/>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/css.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+</head>
+<body style="overflow-x:hidden">
+<script>
+kj.platform = "mobile";
+</script>
+<div class="top">
+	{if($app_act=='area')}
+	<li class="logo"><img src="images/logo.png"></li>
+	{else}
+	<li><a href="?app_act=area" class="area">{$area_name}</a></li>
+	{/if}
+	<li class="menu">
+		<a href="?" title="网站首页"><img src="images/menu_1.png"></a>
+		<a href="?app_act=cart" title="我的购物车"><img src="images/menu_3.png"></a>
+		<a href="javascript:void(0);" onclick="if(kj.obj('#id_menu1').style.display=='none'){jsheader.over(this,1)}else{jsheader.out(1)}"><img src="images/menu_4.png"></a>
+	</li>
+</div>
+{if($this_login_user->uid>0)}
+<div class="xiala" id="id_menu1" style="display:none">
+	<li class="x2"><img src="images/menu_5.png"></li>
+	<li class="x1">
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member&app_act=pwd"><img src="images/menu_p1.png">&nbsp;&nbsp;修改密码</a>
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member"><img src="images/menu_p2.png">&nbsp;&nbsp;我的订单</a>
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member&app_act=myintegral"><img src="images/menu_p3.png">&nbsp;&nbsp;我的积分</a>
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member&app_act=myvip"><img src="images/menu_p3.png">&nbsp;&nbsp;我的经验</a>
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member&app_act=msg"><img src="images/menu_p4.png">&nbsp;&nbsp;我的留言</a>
+		<a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=member&app_act=repayment"><img src="images/menu_p4.png">&nbsp;&nbsp;我的预付款</a>
+		<a href="{cfg:(dirpath,base)}/common.php?app=sys&app_act=login.out"><img src="images/menu_p5.png">&nbsp;&nbsp;退出</a>
+	</li>
+</div>
+{else}
+<div class="xiala" id="id_menu1" style="display:none">
+	<li class="x2"><img src="images/menu_5.png"></li>
+	<li class="x1">
+		<span class="y1"><input type='button' name='btn_login' value='登录' class="button2" onclick="window.open('?app_act=login','_self');"><br><br><input type='button' name='btn_reg' value='注册' class="button2x" onclick="window.open('?app_act=reg','_self');"></span>
+		<span class="y2">使用其它账号登录</span>
+		<span class="y1"><img src="images/btn_sina.png"><br><br><img src="images/btn_qq.png"></span>
+	</li>
+</div>
+{/if}
+<script src="header.js"></script>
+<script src="member.js"></script>
+<script src="/common/js/kj.rule.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script>
+kj.onload(function(){
+	var w = (kj.w()-980)/2;
+	kj.set("#idmenu1" , "style.top" , '120px');
+	kj.set("#idmenu1" , "style.left" , (w+390)+'px');
+	jsheader.rule_uname = "{cfg:(rule_uname,user)}";
+	jsheader.reg_verify = "{cfg:(reg_verify,user)}";
+	jsheader.tempurl = "{$temp_url}";
+	jsheader.is_verify = {if($this_login_user->is_verifycode())}true{else}false{/if};
+});
+</script>

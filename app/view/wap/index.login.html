@@ -1,0 +1,81 @@
+{include(header)}
+<form name="frmlogin" method="post" action="{cfg:(dirpath,base)}/common.php?app=sys&app_act=login.verify" onsubmit="return thisjs.on_login();">
+<div class="loginbox">
+	<ul class="xleft">
+		<li><span class="x1">{if(cls_config::get('rule_uname','user')=='email')}邮箱：{else if(cls_config::get('rule_uname','user')=='mobile')}手机：{else}用户名：{/if}</span><span><input type="text" name="uname" class="txt1"/></span></li>
+		<li><span class="x1">密码：</span><span><input name="pwd" type="password" class="txt1"/></span></li>
+		<li id="id_verify_code"{if($this_login_user->is_verifycode()==false)} style="display:none"{/if}><span class="x1">验证码：</span><span><input name="verifycode" type="text" class="txt2"  onfocus="thisjs.show_verify('#id_verify');"/>&nbsp;<img src="" id="id_verify_pic" onclick="this.src='{cfg:(dirpath,base)}/common.php?app=sys&app_act=verifycode&app_contenttype=img&app_rnd='+Math.random();" style="display:none"></span></li>
+		<li><span class="x1"></span><span><label><input type="checkbox" name="autologin" value="1" checked>下次自动登录</label>&nbsp;&nbsp;<a href="?app=index&app_act=findpwd">忘记密码?</a><br><br>
+		<input type="submit" name="btn_submit" value="登 录" class="button1" style="font-size:22px">
+		</span></li>
+	</ul>
+	<ul class="xright">
+		<li>使用其它账号登录：</li>
+		<li><img src="images/btn_sina.png">&nbsp;&nbsp;<img src="images/btn_qq.png"></li>
+	</ul>
+	<ul class="xboot a1">
+	<h1>还不是会员？</h1>一分钟轻松注册，就可以方便订餐<a href="?app_act=reg">【立即注册】</a>
+	</ul>
+</div>
+<input type="hidden" name="jump_fromurl" value="{$jump_fromurl}" id="id_jump_fromurl">
+</form>
+<script>
+var thisjs = new function() {
+	this.show_verify = function() {
+		var objpic = kj.obj("#id_verify_pic");
+		if(objpic.src.indexOf("verifycode")<0) {
+			objpic.src = kj.cfg('dirpath') + '/common.php?app=sys&app_act=verifycode';
+			kj.handler(document.documentElement,"click",function(e){
+				var arr = new Array('img' , 'input');
+				var target = kj.event_target(e);
+				if(target.name!='verifycode' && target.id!='id_verify_pic') {
+					kj.hide('#id_verify_pic');
+				}
+			});
+		}
+		kj.show('#id_verify_pic');
+	}
+	this.on_login = function() {
+		kj.ajax.post(document.frmlogin , function(data) {
+			var obj_data=kj.json(data);
+			if(obj_data.isnull) {
+				alert("系统繁忙，请稍后再来试试");
+			} else {
+				if(obj_data.code == 0) {
+					var url = kj.obj("#id_jump_fromurl").value;
+					if(url) {
+						window.open(url , "_self");
+					} else {
+						window.open("?" , "_self");
+					}
+				} else {
+					if(thisjs.is_verify) {
+						thisjs.verify_refresh();
+					}
+					if('msg' in obj_data && obj_data.msg) {
+						alert(obj_data.msg);
+					} else {
+						alert("系统繁忙，请稍后再来试试");
+					}
+					if(thisjs.is_verify) {
+						thisjs.verify_refresh();
+						document.frmlogin.verifycode.value='';
+					}
+					if('show_code' in obj_data && obj_data.show_code == '1') {
+						thisjs.is_verify = true;
+						kj.show("#id_verify_code");
+					}
+					if(obj_data.code == '4') document.frmlogin.uname.focus();
+					if(obj_data.code == '3') document.frmlogin.pwd.focus();
+					if(obj_data.code == '11') document.frmlogin.verifycode.focus();
+				}
+			}
+		});
+		return false;
+	}
+	this.verify_refresh = function() {
+		kj.obj("#id_verify_pic").src = kj.cfg('dirpath') + '/common.php?app=sys&app_act=verifycode&app_contenttype=img&app_rnd='+Math.random();
+	}
+}
+</script>
+{include(footer)}

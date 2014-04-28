@@ -1,0 +1,196 @@
+{include(header)}
+<script src="/common/js/kj.ajax.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.rule.js"></script>
+<script>
+	thisdata = [];
+</script>
+<div class="cartlist mg1">
+<form name="frm_main" method="post" action="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app=ajax&app_act=saveorder" onsubmit="return thisjs.save();">
+<input type="hidden" name="cart_ids" value="">
+	{foreach($cart_list['shop'] as $item=>$shop)}
+	{set $total=0}
+	<div style="float:left;width:100%" id="id_shop_{$shop['info']['shop_id']}">
+		<div id="id_list_{$shop['info']['shop_id']}">
+		<table class="mlist"><tr class="tit"><td>菜品</td><td class="num">数量</td><td class="count">小计</td><td class="act">操作</td></tr>
+		{foreach($shop['cart'] as $key=>$cart)}
+		<tr class="x_list1"><td>
+			{foreach($cart['ids'] as $menu)}
+				{$cart_list['menu']['id_'.$menu]['menu_title']}
+				<input type="hidden" name="menuprice[]" value="{$cart_list['menu']['id_'.$menu]['menu_price']}">
+			{/foreach}
+		</td><td>
+		<input type="hidden" name="menunum[]" value="{$cart['num']}" id="id_num_{$key}">
+		<select name="selnum[]" onchange="jscartlist.change_num('#id_num_{$key}','',this.value);">
+		{for($i=1;$i<20;$i++)}
+		<option value="{$i}"{if($cart['num']==$i)} selected{/if}>{$i}份</option>
+		{/for}
+		</select>
+		</td><td>￥<span class="menu_price">{$cart_list['menu']['id_'.$menu]['menu_price']}</span></td><td><img src="images/pic_del.png" onclick="jscartlist.cart_remove(this , {$shop['info']['shop_id']},{$menu})" style="cursor:pointer"></td></tr>
+		<script>
+			{for($i=0;$i<$cart['num'];$i++)}
+			thisdata[thisdata.length] = "{$key}";
+			{/for}
+		</script>
+			{set $total+=$cart['price']}
+		{/foreach}
+		</table>
+		</div>
+		<table class="tabact" id="id_score_{$shop['info']['shop_id']}"{if(empty($score_money_scale))}style='display:none'{/if}}>
+			<tr><td class="col1">积分抵扣<br>100积分可抵1元</td><td><input type='text' name='score' value="" class="txtbox1 pTxtL100" onblur="jscartlist.score_input({$shop['info']['shop_id']});" onkeyup="jscartlist.score_input({$shop['info']['shop_id']});" id="id_score_input"> × 100&nbsp;&nbsp;您还有 <span class="x_sel3" id="id_my_score">{$score_total}</span> 积分，可抵扣 <span class="x_sel3">{$score_money}</span> 元</td></tr>
+			{if(count($shop_act)>0)}
+			<tr><td class="col1">优惠活动</td><td id="id_act_{$shop['info']['shop_id']}"></td></tr>
+			{/if}
+		</table>
+		<div class="total" id="id_total_{$shop['info']['shop_id']}">
+			合计：<span class="x_sel1">￥</span><span id="id_shop_total_{$shop['info']['shop_id']}" class="x_sel1">{$total}</span> (菜品) - <span class="x_sel1"{if(empty($score_money_scale))}style='display:none'{/if}}>￥</span><span id="id_shop_score_{$shop['info']['shop_id']}" class="x_sel1"{if(empty($score_money_scale))}style='display:none'{/if}}>0</span> {if(!empty($score_money_scale))}(积分抵扣)- {/if} <span class="x_sel1">￥</span><span id="id_shop_act_{$shop['info']['shop_id']}" class="x_sel1">0</span> (优惠) = <span class="x_sel2">￥</span><span id="id_shop_price_{$shop['info']['shop_id']}" class="x_sel2">{$total}</span>&nbsp;&nbsp;&nbsp;
+		</div>
+		<div class="scoretotal" style="color:#ff0000;padding-right:10px">
+		本次订单可获得：<span id="id_scoreintro_{$shop['info']['shop_id']}">{$total*$money_score}</span> 积分<br><span style="color:#888">(将在订单成交以后送出)</span>
+		</div>
+	</div>
+	{/foreach}
+	<div class="div4"><span>配送地址</span></div>
+	<table class="tabact">
+		<tr>
+		<td id="id_address_info">
+		{foreach($this_info["list"] as $item)}
+			<table {if($last_area_id==$item['info_id'])}class="x_sel1"{/if} id="id_info_{$item['info_id']}">
+				<tr><td style="color:#0099FF" valign="top"><label><input name="area_select" type="radio" id="id_info_radior{$item['info_id']}" value="{$item['info_id']}" {if($last_area_id==$item['info_id'])} checked{/if} onclick="jscartlist.infosel(this ,{$item['info_id']});">&nbsp;<span  id="id_info_name{$item['info_id']}">{$item['info_name']}（{$item['info_sex']}）</span></label><span style="float:right"><img src="images/b_edit.png" onclick="jscartlist.info_edit({$item['info_id']});">&nbsp;&nbsp;<img src="images/b_drop.png" onclick="jscartlist.info_del({$item['info_id']});"></span></td></tr><tr>
+				<td valign="top" id="id_info_base{$item['info_id']}">
+				{$item['info_area']}&nbsp; — &nbsp;{$item['info_louhao1']}{if(!empty($item['info_company']))} — {$item['info_company']}/{$item['info_depart']}{/if}<br>
+				固话：{$item['info_tel']} {if($item['info_telext']!='')}转 {$item['info_telext']}{/if} / 手机：{$item['info_mobile']}
+				{set $arr=explode(",",$item["info_area_allid"])}
+				{set $dispatch=$dispatch_min_price}
+				{foreach($arr as $areaid)}
+					{if(isset($areainfo['area']['id_' . $areaid]['dispatch_price']) && $areainfo['area']['id_' . $areaid]['dispatch_price']>0 )} 
+					{set $dispatch=$areainfo['area']['id_'.$areaid]['dispatch_price']}
+					{/if}
+				{/foreach}
+				<span class="x_sel2" id="id_dispatch_{$item['info_id']}"><br>起送价：{$dispatch}</span>
+				</td></tr>
+			</table>
+		{/foreach}
+		
+			<table {if(count($this_info['list'])<1)}class="x_sel1"{/if} {if($this_info['isover'])} style='display:none'{/if}>
+				<tr><td style="color:#0099FF" valign="top"><label><input type="radio" name="area_select" value="0" id="id_new_info_radior"{if(count($this_info['list'])<1)} checked{/if} onclick="jscartlist.infosel(this,'0');" >使用新地址</label></td><tr>
+				<tr>
+				<td valign="top" id="id_new_infocol">
+				<table {if(count($this_info['list'])>0)} style="display:none"{/if} id="id_new_infosel">
+				<tr><td>
+					<input type="hidden" name="area_id" id="id_area_id" value="">
+					<input type="hidden" name="area_allid" id="id_area_allid" value="">
+					<input type="hidden" name="area" id="id_area" value="">
+					<select name="info_area_id[]" onchange="jscartlist.changearea(this.value,0);" id="id_area_0">
+						<option value=""></option>
+					{foreach($areainfo["default"] as $item)}
+						<option value="{$item['area_id']}">{$item['area_name']}</option>
+					{/foreach}
+					</select>
+					{for($i=1;$i<$areainfo["depth"];$i++)}
+						<select name="info_area_id[]" onchange="jscartlist.changearea(this.value,{$i});" id="id_area_{$i}">
+						</select>
+					{/foreach}					
+					&nbsp;&nbsp;<br><span class="x_sel2">起送价：</span><span class="x_sel2" id="id_dispatch_0">{$dispatch_min_price}</span>
+					</td></tr>
+				<tr><td>
+						<input name="louhao1" type="text" maxlength="50" value="具体位置" style="width:200px" onFocus="if(this.value=='具体位置')this.value='';" onBlur="if(this.value=='')this.value='具体位置';">&nbsp;
+						<input name="louhao2" type="hidden" value="">				
+				</td></tr>
+				<tr><td>
+					<input name="name" type="text" maxlength="5" value="收件人" onFocus="if(this.value=='收件人')this.value='';" onBlur="if(this.value=='')this.value='收件人';">
+					<label><input name="sex" type="radio" value="先生" checked>先生</label> 
+					<label><input type="radio" name="sex" value="小姐">小姐</label><span class="txt_gary"> (如果有同事与您同姓，建议您填全名!)</span>				
+				
+				</td></tr>
+				<tr><td>
+					<input name="mobile" type="text" maxlength="11" value="手机号码" onFocus="if(this.value=='手机号码')this.value='';" onBlur="if(this.value=='')this.value='手机号码';">
+				
+				</td></tr>
+				<tr><td>
+							  <input name="tel" type="text" maxlength="8" value="八位数字不带区号" onFocus="if(this.value=='八位数字不带区号')this.value='';" onBlur="if(this.value=='')this.value='八位数字不带区号';">
+							  <input name="telext" type="text" maxlength="4" style="width:60px" value="分机选填" onFocus="if(this.value=='分机选填')this.value='';" onBlur="if(this.value=='')this.value='分机选填';">
+				</td></tr>
+				<tr><td>
+					<input name="company" type="text" maxlength="12" value="公司名称-选填"  onFocus="if(this.value=='公司名称-选填')this.value='';" onBlur="if(this.value=='')this.value='公司名称-选填';">
+					<input name="depart" type="text" maxlength="5" value="部门-选填"  onFocus="if(this.value=='部门-选填')this.value='';" onBlur="if(this.value=='')this.value='部门-选填';">				
+				</td></tr>
+				</table>
+				</td></tr>
+			</table>
+			<table class="x_sel1" id="id_edit_infodiv" style="display:none">
+				<tr><td style="color:#0099FF" valign="top"><input type="radio" name="area_select" id="id_new_edit_radior">编辑信息</td></tr>
+				<tr><td valign="top" id="id_info_editcol"></td></tr>
+				<tr><td valign="top"><input type="button" name="btn_saveinfo" value="保 存" class="button4" onclick="jscartlist.info_save();">&nbsp;&nbsp;<input type="button" name="btn_saveinfo" value="取 消" class="button4x" onclick="jscartlist.info_cancel(true);"></td></tr>
+			</table>
+		</td>
+	</tr></table>
+	<div class="div4"><span>送餐到达时间(<font style="color:#ff0000">*</font>)</span></div>
+	<table class="tabact" id="id_arrive_{$shop['info']['shop_id']}">
+		<tr>
+		<td><select name="arrive">
+			<option value="尽快送到">尽快送到</option>
+			{foreach($cart_list["arrivetime"] as $item=>$key)}
+			<option value="{$item}">{$key}</option>
+			{/foreach}
+		</select></td></tr>
+	</table>
+	<div class="div4"><span>支付方式(<font style="color:#ff0000">*</font>)</span></div>
+	<table class="tabact" id="id_paymethod_{$shop['info']['shop_id']}">
+		<tr>
+		<td>
+		{if(in_array('afterpayment',$paymethod))}<label><input type="radio" name="paymethod" value="afterpayment" checked>货到付款</label><br>{/if}
+		{if(in_array('repayment',$paymethod))}<label><input type="radio" name="paymethod" id="id_repayment" value="repayment"{if($user_repayment<$total)} disabled{/if}>预付款支付</label>&nbsp;&nbsp;<span style="color:#888888">您当前预付款为 {$user_repayment}</span> <span id="id_repayment_beta" style="color:#888888">{if($user_repayment<$cart_list['price'])}不够支付{/if}</span><br>{/if}
+		{if(in_array('onlinepayment',$paymethod))}
+			{foreach($arr_pay as $item => $key)}
+				{if(!empty($key['state']))}
+					<label><input type="radio" name="paymethod" value="{$item}">{$key['fields']['title']}</label><br>
+				{/if}
+			{/if}
+		{/if}</td></tr>
+	</table>
+	<div class="div4"><span>索取发票</span></div>
+	<table class="tabact" id="id_ticket_{$shop['info']['shop_id']}">
+		<tr>
+		<td>
+		<select name="ticket" id="id_ticket" style="margin-right:3px; width:252px" onchange="jscartlist.score_refresh(1)">
+		{foreach($cart_list["ticket"] as $item=>$key)}
+		<option value="{$item}">{$key}</option>
+		{/foreach}
+		</select></td></tr>
+	</table>
+	<table class="tabact" id="id_beta_{$shop['info']['shop_id']}">
+		<tr>
+		<td><textarea name="beta" cols='30' rows='2'>备注</textarea></td></tr>
+	</table>
+	{if($this_login_user->uid>0)}
+	<div class="confirm">
+		<input type="button" name="btn_saveinfo" value="提交订单" class="button3" onclick="jscartlist.submit(0);">
+	</div>
+	{/if}
+</form>
+</div>
+<script src="cartlist.js"></script>
+<script>
+kj.onload(function(){
+	jscartlist.shopid = {$shop['info']['shop_id']};
+	jscartlist.ordernum = {if(empty($shop['num']))}0{else}{$shop['num']}{/if};
+	jscartlist.shop_minleast = kj.toint("{$shop['info']['shop_dispatch_price']}");
+	jscartlist.shop_oneminleast = kj.toint("{$shop['info']['shop_oneminleast']}");
+	jscartlist.minleast = jscartlist.shop_minleast;
+
+	jscartlist.score = {$score_total};//当前积分
+	jscartlist.act_list = {if(count($shop_act)>0)}{fun_format::json($shop_act)}{else}[]{/if};//时间条件优惠金额
+	jscartlist.arealist = {fun_format::json($areainfo["list"])};//json格式，指定id包函的子地区
+	jscartlist.areainfo = {fun_format::json($areainfo["area"])};//对应id地区详细信息
+	jscartlist.depth = {$areainfo["depth"]};//当前地区深度
+	jscartlist.init(thisdata);
+	jscartlist.refresh_price();
+	jscartlist.info_seldefault('{$areainfo["pids"]}');
+	if('{$last_area_id}' != '') {
+		jscartlist.infosel(kj.obj("#id_info_radior{$last_area_id}") ,"{$last_area_id}");
+	}
+});
+</script>
+{include(footer)}

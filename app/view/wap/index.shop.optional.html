@@ -1,0 +1,268 @@
+{include(header)}
+<div class="div3">
+	<ul class="x1">
+	<li class="pic"><span><img src="{$shopinfo['shop_pic']}">&nbsp;</span><a href="javascript:" class="xcollect">收藏</a></li>
+	</ul>
+	<ul class="x2">
+	<li class="xtit">{$shopinfo['shop_name']}</li>
+	<li><font color="#666666">餐品：</font>138&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">评论：</font>{$shopinfo['commentnum']}</li>
+	{foreach($shopinfo['extend']['arr_opentime'] as $item=>$key)}
+	<li>{$key}</li>
+	{/foreach}
+	<li>电话订餐：{$shopinfo['shop_tel']}</li>
+	<li>店铺地址：{$shopinfo['shop_address']}</li>
+	</ul>
+</div>
+{foreach($arr_menu["list"] as $item)}
+<div class="div4"><span>{$item["name"]}</span></div>
+<div class="div5">
+	{foreach($item['list'] as $menu)}
+		<ul>
+		<li class="x1"><a href="javascript:thisjs.cart_add({id:'{$menu['menu_id']}',name:'{$menu['menu_title']}',pic:'{$menu['menu_pic_small']}',price:'{$menu['menu_price']}',type:'{$menu['menu_type']}'});"><img src="{$menu['menu_pic_small']}"></a></li>
+		<li class="x2"><font class="xtit">{$menu['menu_title']}</font><br>主料：{$menu['menu_intro']}<br>评论：{$menu['menu_comment_num']}条<br><span style="color:#ff8800"><font style="font-size:16px">￥{$menu['price_int']}</font>.{$menu['price_float']}</span></li>
+		<li class="x3"><a href="javascript:thisjs.cart_add({id:'{$menu['menu_id']}',name:'{$menu['menu_title']}',pic:'{$menu['menu_pic_small']}',price:'{$menu['menu_price']}',type:'{$menu['menu_type']}'});"><img src="images/buy1.png"></a></li>
+		</ul>
+	{/foreach}
+</div>
+{/foreach}
+<script src="/common/js/kj.dialog.js"></script>
+<script>
+var thisjs = new function() {
+//配置信息:minprice = 单份订单最小价格 , 单份订单最多菜品数 , 单份订单最多菜数(不算饭与汤)
+	this.cfg = {minprice:5 ,maxnum:6 , maxcainum:4 , mintotal:10};
+	//默认加载米饭
+	{if(isset($menu_rice['menu_id']))}
+		this.rice = {id:'{$menu_rice['menu_id']}',name:'{$menu_rice['menu_title']}',pic:'{$menu_rice['menu_pic_small']}',price:'{$menu_rice['menu_price']}',type:'{$menu_rice['menu_type']}'};
+	{else}
+		this.rice = false;
+	{/if}
+	this.cart = [];
+	this.index = -1;
+	this.total = 0;
+	this.cart_add = function(o) {
+		var ii , i ;
+		var index = this.cart[this.index].length;
+		//规则检测
+		if(index >= this.cfg.maxnum) {
+			alert("温馨提示：为了您的健康，我们建议您单人用餐 最好不要超过" + this.cfg.maxnum + "种！");
+			return;
+		}
+		if(o.type == 3) {
+			ii = 0;
+			for(i = 0; i < index ; i++) {
+				if(this.cart[this.index][i].type == 3) ii++;
+			}
+			if(ii >= this.cfg.maxcainum) {
+				alert("温馨提示：为了您的健康，我们建议您用餐 菜品 最好控制在" + this.cfg.maxcainum + "种以内！");
+				return;
+			}
+		}
+		//检查如果是套餐,并且此次已经点有餐时，则自动增加一人用餐
+		if(index>0 && (o.type==6 || this.cart[this.index][0].type==6)) {
+			if(!this.cart_new(false)) return false;
+			index = 0;
+		}
+		this.cart[this.index][index] = o;
+		var objbox = kj.obj("#id_cart_box");
+		//添加选中菜品缩略图
+		var html = '';
+		if( o.type==6) {
+			html = '<li class="x_menu2" style="background:url'+'(' + o.pic + ') no-repeat;" onmouseover="kj.show(kj.obj(\'img\',this));"  onmouseout="kj.hide(kj.obj(\'img\',this));" onclick="thisjs.cart_del('+index+')" title="'+o.name+'"><img src="images/btn_del.gif" style="display:none"></li>';
+		} else {
+			html = '<li class="x_menu" style="background:url'+'(' + o.pic + ') no-repeat;" onmouseover="kj.show(kj.obj(\'img\',this));"  onmouseout="kj.hide(kj.obj(\'img\',this));" onclick="thisjs.cart_del('+index+')" title="'+o.name+'"><img src="images/btn_del.gif" style="display:none"></li>';
+			//非第三个时，显示加号
+			i = index+1;
+			if(i%3 != 0) html += '<li class="x_plus">&nbsp;</li>';
+		}
+		objbox.innerHTML = objbox.innerHTML + html;
+		//总金额加
+		this.total += kj.toint(o.price);
+		this.refresh_info();
+		this.show_cartbox();
+	}
+	//新增一人 , type=3 表示套餐，不加饭
+	this.cart_new = function(rice) {
+		var price = 0;
+		//检查当前订餐是否合格
+		if(this.index>=0) {
+			for(i = 0; i < this.cart[this.index].length ; i++) {
+				price+=kj.toint(this.cart[this.index][i].price);
+			}
+			if(price < this.cfg.minprice) {
+				alert("温馨提示：单份消费价格不得低于"+this.cfg.minprice+"元，不便之处还请您多多包涵！");
+				return false;
+			}
+		}
+		this.index=this.cart.length;
+		this.cart[this.cart.length] = [];
+		var objbox = kj.obj("#id_cart_box");
+		objbox.innerHTML = '';
+		//自动加饭
+		if(rice && this.rice) {
+			this.cart_add(this.rice);
+		} else {
+			this.refresh_info();
+		}
+		if(kj.obj("#winshopbox")) kj.dialog.hide("#winshopbox");
+		return true;
+	}
+	//删除选中菜品
+	this.cart_del = function(index) {
+		//总金额减
+		this.total -= kj.toint(this.cart[this.index][index].price);
+		this.cart[this.index].removeat(index);
+		this.cart_go(this.index);
+	}
+	//刷新提示信息
+	this.refresh_info = function() {
+		var arr_act=[], html_act = '';
+		var type_1=0,type_2=0,type_3=0,price=0;
+		var len = this.cart[this.index].length;
+		index = this.index;
+		var num = index+1;
+		var totalnum = this.cart.length;
+		//if(totalnum==1 && this.cart[this.index].length<1) totalnum = 0;
+		for(var i = 0 ; i < len ; i++) {
+			if(this.cart[index][i].type==1) {
+				type_1++;
+			} else if(this.cart[index][i].type==2) {
+				type_2++;
+			} else if(this.cart[index][i].type==3) {
+				type_3++;
+			}
+			price+=kj.toint(this.cart[this.index][i].price);
+		}
+		var html = '第'+num+'份餐&nbsp;&nbsp;<font color="#888888">';
+		if(this.cart[this.index].length>0) arr_act[arr_act.length] = '<a href="javascript:thisjs.cart_remove();">删除</a>';
+		if(num>1) arr_act[arr_act.length] = '<a href="javascript:thisjs.cart_go('+(num-2)+');">上份</a>';
+		if(num < totalnum) arr_act[arr_act.length] = '<a href="javascript:thisjs.cart_go('+(num)+');">下份</a>';
+		if(arr_act.length>0) html_act='[ '+arr_act.join("，")+' ]';
+		if(this.cart[this.index].length>0 && this.cart[this.index][0].type==6) {
+			html += html_act + '<br><font color="#0000ff">套餐金额：'+price+'元</font><br>共'+totalnum+'份，总金额：'+this.total+'元';
+		} else{
+			html +=html_act+'<br>用餐标准：'+type_3+'菜'+type_2+'汤'+type_1+'饭'
+			html += '<br>小计金额：'+price+'元<br>共'+totalnum+'份，总金额：'+this.total+'元';
+		}
+		var objbox = kj.obj("#id_cart_info");
+		objbox.innerHTML = html;
+	}
+	//跳到指定餐
+	this.cart_go = function(index) {
+		this.index = index;
+		var len = this.cart[this.index].length;
+		html = '';
+		for(var i = 0 ; i < len ; i++) {
+			if(this.cart[this.index][0].type!=6) {
+				html += '<li class="x_menu" style="background:url'+'(' + this.cart[this.index][i].pic + ') no-repeat;" onmouseover="kj.show(kj.obj(\'img\',this));"  onmouseout="kj.hide(kj.obj(\'img\',this));" onclick="thisjs.cart_del('+i+')" title="'+this.cart[this.index][i].name+'"><img src="images/btn_del.gif" style="display:none"></li>';
+				j = i+1;
+				if(j%3 != 0) html += '<li class="x_plus">&nbsp;</li>';
+			} else {
+				html += '<li class="x_menu2" style="background:url'+'(' + this.cart[this.index][i].pic + ') no-repeat;" onmouseover="kj.show(kj.obj(\'img\',this));"  onmouseout="kj.hide(kj.obj(\'img\',this));" onclick="thisjs.cart_del('+i+')" title="'+this.cart[this.index][i].name+'"><img src="images/btn_del.gif" style="display:none"></li>';
+				break;
+			}
+		}
+		var objbox = kj.obj("#id_cart_box");
+		objbox.innerHTML = html;
+		this.refresh_info();
+	}
+	//删除当前份
+	this.cart_remove = function() {
+		var i = this.index;
+		var j;
+		for(j = 0 ; j < this.cart[i].length ; j++) {
+			this.total -= kj.toint(this.cart[i][j].price);
+		}
+		this.cart.removeat(i);
+		if(this.cart.length>i) {
+			this.cart_go(i);
+		} else if(this.cart.length>0) {
+			this.cart_go(this.cart.length-1);
+		} else {
+			this.index = -1;
+			this.cart_new(false);
+		}
+	}
+	//提交，保存到cookie
+	this.cart_submit = function() {
+		//检查是否已点餐
+		if(this.cart.length<1 || this.cart[0].length<1) {
+			alert("温馨提示：您的购物车是空的，请先点餐！");
+			return false;
+		}
+		//检查当前点餐是否已满足条件
+		var price = 0;
+		for(i = 0; i < this.cart[this.index].length ; i++) {
+			price+=kj.toint(this.cart[this.index][i].price);
+		}
+		if(this.cart[this.index]>0 && price < this.cfg.minprice) {
+			alert("温馨提示：单份消费价格不得低于"+this.cfg.minprice+"元，不便之处还请您多多包涵！");
+			return false;
+		}
+		//点餐价格是否达到起送价
+		if(this.total < this.mintotal) {
+			alert("温馨提示：由于人力成本等问题，外卖定餐需起送不得低于"+this.mintotal+"元，不便之处还请您多多包涵！");
+			return false;
+		}
+		var i,arr_1=[],arr_2=[];
+		for(i = 0 ; i < this.cart.length ; i++ ) {
+			arr_2=[] ;
+			for(j = 0 ; j < this.cart[i].length ; j++) {
+				arr_2[arr_2.length] = this.cart[i][j].id;
+			}
+			if(this.cart[i].length>0) arr_1[arr_1.length] = arr_2.join(",");
+		}
+		var str = kj.cookie_get("cart_ids");
+		var arr = [];
+		if(str) arr = str.split("||");
+		for(i = 0 ; i < arr.length ; i++) {
+			arr_2 = arr[i].split(":");
+			if(arr_2[0] == '{$shop_id}') {
+				arr.removeat(i);break;
+			}
+		}
+		arr[arr.length] = "{$shop_id}:" + arr_1.join("|");
+		var str_ids = arr.join("||");
+		kj.cookie_set("cart_ids" , str_ids , 24);
+		window.location.href = "{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=cart";
+
+	}
+	this.cart_init = function() {
+		var is_new = true;
+		{foreach($arr_menu['cart'] as $cart)}
+			if(is_new) {
+				this.cart_new(false);
+				is_new = false;
+			}
+			{foreach($cart as $menu)}
+				{if(isset($arr_menu["cart_menu"]["id_".$menu]))}
+				this.cart_add({id:'{$arr_menu["cart_menu"]["id_".$menu]['menu_id']}',name:'{$arr_menu["cart_menu"]["id_".$menu]['menu_title']}',pic:'{$arr_menu["cart_menu"]["id_".$menu]['menu_pic_small']}',price:'{$arr_menu["cart_menu"]["id_".$menu]['menu_price']}',type:'{$arr_menu["cart_menu"]["id_".$menu]['menu_type']}'});
+				is_new = true;
+				{/if}
+			{/foreach}
+		{/foreach}
+		{if(count($arr_menu['cart'])<1)}
+			this.cart_new(false);
+		{/if}
+	}
+	this.show_cartbox = function() {
+		var obj = kj.obj('#id_shopbox');
+		if(obj) {
+			this.shopbox_html = obj.innerHTML;
+			kj.remove(obj);
+		}
+		kj.dialog({'html':this.shopbox_html,'id':'shopbox','type':'html','title':'我的饭盒','w':228,'showbtnmax':false,'showbtnclose':false,'showbtnhide':true});
+	}
+}
+kj.onload(function(){
+	thisjs.cart_init();
+});
+</script>
+<div id="id_shopbox" style="display:none">
+	<div class="cart_box">
+		<div class="x_box" id="id_cart_box">
+		</div>
+		<div class="x_info a1" id="id_cart_info"></div>
+		<div class="x_btn"><input type="button" name="btn_new" value="增加一人" class="btn_bg1" onmousedown="thisjs.cart_new(true);">&nbsp;&nbsp;<input type="button" name="btn_ok" value="提交订单" class="btn_bg1" onclick="thisjs.cart_submit();"></div>
+	</div>
+</div>
+{include(footer)}

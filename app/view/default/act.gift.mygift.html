@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{cfg:(site_title,sys)}</title>
+<meta name="keywords" content="{cfg:(keywords,sys)}"/>
+<meta name="description" content="{cfg:(description,sys)}"/>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="gift/css.css"/>
+<style>
+body{background:#fff}
+</style>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.page.js"></script>
+</head>
+<body style="overflow-x:hidden">
+<div class="mygift">
+	<div class="xtit">
+		<span style="width:150px;">时间</span>
+		<span style="width:100px;">礼品</span>
+		<span style="width:100px;">数量</span>
+		<span style="width:100px;">消耗积分</span>
+		<span style="width:230px;">状态</span>
+	</div>
+	{foreach($record_list["list"] as $item)}
+	<div class="xlist">
+		<span class="x1">{$item["record_datetime"]}</span>
+		<span class="x2">{$item['gift_name']}</span>
+		<span class="x3">{$item['record_num']}</span>
+		<span class="x5">{$item['record_score']}</span>
+		<span class="x6" id="id_state_{$item['record_id']}">{$item["state"]}
+		{if(!empty($item['record_send_time']) && empty($item['record_receive_time']) )}
+		【<a href="javascript:thisjs.receive('{$item['record_id']}');">领取</a>】
+		{/if}
+		</span>
+	</div>
+	{/foreach}
+</div>
+<div class="pPage" id="id_pPage" style="margin-top:20px">
+{$record_list['pagebtns']}
+</div>
+<script>
+var thisjs = new function() {
+	this.receive = function(id) {
+		kj.ajax.get("?app=act.gift&app_act=gift.receive&id="+id,function(data) {
+			var obj = kj.json(data);
+			if(obj.isnull) {alert("系统繁忙");return;}
+			if(obj.code != '0') {
+				('msg' in obj)? alert(obj.msg) : alert("系统繁忙");
+				return;
+			}
+			var objstate = kj.obj("#id_state_"+data.id);
+			if(objstate) objstate.innerHTML = "已领取";
+			('msg' in obj) ? kj.alert(obj.msg) : kj.alert("已成功设置为领取状态");
+		});
+	}
+}
+</script>
+</body>
+</html>

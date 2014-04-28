@@ -1,0 +1,38 @@
+{include(header)}
+<style>
+.comment{float:left;width:100%;padding:10px 0px}
+.comment .good{color:#CC0000;background:url(images/comment1.png) no-repeat right center;padding-right:20px}
+.comment .general{color:#78D417;background:url(images/comment2.png) no-repeat right center;padding-right:20px}
+.comment .fail{color:#666666;background:url(images/comment3.png) no-repeat right center;padding-right:20px}
+.comment .tit{float:left;500px}
+.comment .tit span{float:left}
+.comment table{float:left;width:100%;margin-top:20px}
+.comment table .tit2{}
+.comment table td{padding:8px 0px 7px 5px;border-bottom:1px #eee solid}
+.comment table .tit2 td{background:#efefef;font-weight:bold;border-bottom:0px}
+.page{width:100%}
+</style>
+<div class="div3">
+	<ul class="x1">
+	<li class="pic"><span><img src="images/logo.png">&nbsp;</span><a href="javascript:" class="xcollect">收藏</a></li>
+	</ul>
+	<ul class="x2">
+	<li class="xtit">{$shopinfo['shop_name']}</li>
+	<li><font color="#666666">餐品：</font>138&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">评论：</font>55</li>
+	<li>电话订餐：{$shopinfo['shop_tel']}</li>
+	<li><a href="{cfg:(dirpath,base)}/{cfg:(basename,base)}?app_act=shop&id={$shopid}" style="color:#ff0000">返回店铺</a></li>
+	</ul>
+</div>
+<div class="comment">
+	<div class="tit"><span class="good">{$goodnum}人觉得好吃</span><span class="general">{$generalnum}人觉得一般</span><span class="fail">{$failnum}人觉得难吃</span></div>
+	<table>
+	<tr class="tit2"><td width='80'>美食者</td><td width='80'>点评</td><td>时间</td></tr>
+	{foreach($arr_list['list'] as $item)}
+	<tr><td>{$item['user_name']}</td><td style="color:{if($item['comment_val']==0)}#78D417{else if($item['comment_val']==1)}#CC0000{else}#666666{/if}">{$item['val']}</td><td>{$item['addtime']}</td></tr>
+	{/foreach}
+	</table>
+	<div class="pPage page" id="id_pPage" style="margin-top:20px">
+	{$arr_list['pagebtns']}
+	</div>
+</div>
+{include(footer)}

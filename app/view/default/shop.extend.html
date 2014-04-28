@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/shop.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="shop.js"></script>
+<style>
+body{background:#fff}
+</style>
+</head>
+<body style="overflow-x:hidden">
+{include(shop_header)}
+		<input type="hidden" name="shop_progress" value="{$editinfo['shop_progress']}">
+		<table class='edit_table'>
+		<tr>
+			<td class="x_colname" valign="top">开放时间 ：</td><td class="x_colval" valign="top">
+			<textarea name="opentime" cols=50 rows=5 class="pTxt1">{$editinfo['extend']['opentime']}</textarea><br><span class="pBeta">“允许下单的时间,可以设多个时间段，以换行分隔,如：【 900,1300=>9点到13点 】(不包函括号)表示9点到13点, "=>" 后面为说明</span>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top">送餐时间 ：</td><td class="x_colval" valign="top">
+			<textarea name="arrivetime" cols=50 rows=5 class="pTxt1">{$editinfo['extend']['arrivetime']}</textarea><br><span class="pBeta">“一天送餐的时间段</span>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top">订餐提前时间 ：</td><td class="x_colval" valign="top" style="line-height:30px">
+			<input type="input" name="arrivedelay" value="{$editinfo['extend']['arrivedelay']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">分钟<br>“下单时间与要求送餐时间相隔分钟数，如10点下单，这里如果是30分钟，那么表示最快10:30能送到”</span>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top">单份最低金额 ：</td><td class="x_colval" valign="top" style="line-height:30px">
+			<input type="input" name="shop_oneminleast" value="{$editinfo['shop_oneminleast']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">元<br>0表示不限</span>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top">起送价 ：</td><td class="x_colval" valign="top" style="line-height:30px">
+			<input type="input" name="shop_dispatch_price" value="{$editinfo['shop_dispatch_price']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">元<br>0表示不限 ,当设置此值时，如果送达目的地没有限制最低价，则按此价算</span>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top">提供发票：</td>
+			<td class="x_colval" valign="top">
+				<input type="checkbox" name="shop_ticket" value=1{if($editinfo['shop_ticket'])} checked{/if}>
+			</td></tr>
+		<tr>
+			<td class="x_colname" valign="top"></td><td class="x_colval" valign="top" style="line-height:30px">
+				<input type="button" name="btn_submit" class="button4" value="保 存" onclick="shop.frm_ajax('extend.save');">
+			</td></tr>
+
+		</table>
+{include(shop_footer)}
+</body>
+</html>

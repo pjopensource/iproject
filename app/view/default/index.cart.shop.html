@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{cfg:(site_title,sys)}-购物车</title>
+<meta name="keywords" content="{cfg:(keywords,sys)}"/>
+<meta name="description" content="{cfg:(description,sys)}"/>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/css.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.rule.js"></script>
+</head>
+<body>
+{include(header)}
+<script>
+	thisdata = [];
+</script>
+<div class="cartlist mg1">
+<form name="frm_main" method="post" action="?app=ajax&app_act=saveorder" onsubmit="return jscartlist.save();">
+<input type="hidden" name="cart_ids" value="">
+	{foreach($cart_list['shop'] as $item=>$shop)}
+	{set $total=0}
+	<div style="float:left;width:100%" id="id_shop_{$shop['info']['shop_id']}">
+		<div class="shopname"><h2><a href="?app_act=shop&id={$shop['info']['shop_id']}">{$shop['info']['shop_name']}</a></h2></div>
+		<div id="id_list_{$shop['info']['shop_id']}">
+		<table class="mlist"><tr class="tit"><td class="sort">序号</td><td>菜品</td><td class="num">数量</td><td class="count">金额小计</td></tr>
+		{foreach($shop['cart'] as $key=>$cart)}
+		<tr class="x_list1"><td class="sort">{$cart['index']}</td><td>
+			{foreach($cart['ids'] as $menu)}
+				{$cart_list['menu']['id_'.$menu]['menu_title']}
+				<input type="hidden" name="menuprice[]" value="{$cart_list['menu']['id_'.$menu]['menu_price']}">
+			{/foreach}
+		</td><td>
+		{$cart['num']}
+		</td><td>￥<span class="menu_price">{$cart_list['menu']['id_'.$menu]['menu_price']*$cart['num']}</span></td></tr>
+			{set $total+=$cart['price']}
+		{/foreach}
+		</table>
+		</div>
+		<div class="total" id="id_total_{$shop['info']['shop_id']}">
+			合计金额： <span class="x_sel2">￥</span><span id="id_shop_price_{$shop['info']['shop_id']}" class="x_sel2">{$total}</span>&nbsp;&nbsp;&nbsp;
+		</div>
+		<div style="float:right;margin:5px 10px 10px 0px">
+			<input type="button" name="btn_saveinfo" value="去结算" class="button4" onclick="window.open('?app_act=cart&shop_id={$shop['info']['shop_id']}','_self')">
+			<input type="button" name="btn_saveinfo" value="清空" class="button4y" onclick="thisjs.remove({$shop['info']['shop_id']});">
+		</div>
+	</div>
+	{/foreach}
+</form>
+</div>
+<script>
+var thisjs = new function() {
+	this.remove = function(shop_id) {
+		var str = kj.cookie_get("cart_ids");
+		var arr = [];
+		if(str) arr = str.split("||");
+		for(i = 0 ; i < arr.length ; i++) {
+			arr_2 = arr[i].split(":");
+			if(arr_2[0] == shop_id) {
+				arr.removeat(i);break;
+			}
+		}
+		var str_ids = arr.join("||");
+		kj.cookie_set("cart_ids" , str_ids , 24);
+		kj.remove("#id_shop_"+shop_id)
+	}
+}
+</script>
+{include(footer)}
+</body>
+</html>

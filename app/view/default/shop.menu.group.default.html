@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/shop.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.page.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="shop.js"></script>
+<style>
+body{background:#fff}
+</style>
+</head>
+<body style="overflow-x:hidden">
+{include(shop_header)}
+		<div class="pTableMain" id="id_main" style="border:0px">
+			<div style="float:left;width:90%;padding:8px 0px 5px 0px">
+				<li style="float:left;width:40px;padding-left:8px">排序</li>
+				<li style="float:left;">组名</li>
+			</div>
+			<div class="pLayer" id="id_layer">
+			<li style="display:none" id="id_layer_default">
+				<span class="padding_1">&nbsp;<input type="hidden" name="" value="1"></span>
+				<span class="xx_1"><input type="hidden" name="group_id[]" value=""><input type="hidden" name="group_id_layer[]" value="id_layer_default"><input type="hidden" name="pid[]" value=""><input type="text" name="group_sort[]" value="" class='pTxt1 pTxtL20'></span>
+				<span class="xx_1"><input type="text" name="group_name[]" value="" class='pTxt1 pTxtL150'></span><span class="xx_1"><a href="javascript:kj.layer.remove('id_layer_default');"><img src="images/romove.gif"></a></span></li>
+			{foreach($arr_group["list"] as $item)}
+			<li id="id_layer_{$item['group_id']}">
+				<span class="padding_1" style="width:{$item['layer']*50-50}px">&nbsp;<input type="hidden" name="" value="{$item['layer']}"></span>
+				<span class="xx_1"><input type="hidden" name="group_id[]" value="{$item['group_id']}"><input type="hidden" name="group_id_layer[]" value="id_layer_{$item['group_id']}"><input type="hidden" name="pid[]" value="{if($item['group_pid']>0)}id_layer_{$item['group_pid']}{/if}"><input type="text" name="group_sort[]" value="{$item['group_sort']}" class='pTxt1 pTxtL20'></span>
+				<span class="xx_1"><input type="text" name="group_name[]" value="{$item['group_name']}" class='pTxt1 pTxtL150'></span><span class="xx_1"><a href="javascript:kj.layer.remove('id_layer_{$item['group_id']}');"><img src="images/romove.gif"></a></span></li>
+			{/foreach}
+			</div>
+			<div class="pLayerAdd"><a href="javascript:kj.layer.add();"><img src="images/add.gif"> 添加新组</a></div>
+		</div>
+		<div class="pFootAct" id="id_pFootAct" style="margin-top:10px">
+		<li>
+		{if($this_limit->chk_act("update"))}&nbsp;<input type="button" name="btnExe" value="保存" onclick="shop.frm_ajax('save_all');" class="button4">{/if}
+		</li>
+		</div>
+{include(shop_footer)}
+<script src="/common/js/kj.layer.js"></script>
+<script>
+kj.onload(function(){
+	kj.handler(document.documentElement,"mousedown",function(e){
+		oEvent=e||event;
+		kj.x=oEvent.clientX;
+		kj.y=oEvent.clientY;
+	});
+});
+
+</script>
+</body>
+</html>

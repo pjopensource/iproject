@@ -1,0 +1,30 @@
+{foreach($order_list['list'] as $item)}
+	<div class="shop5">
+		<div class="x_tit"><font class="txt_orangeB">{$item['order_time']}</font></div>
+		{foreach($item['menu'] as $menu)}
+			<div class="x_li1">
+				{set $price=0}
+				{foreach($menu as $item_menu)}
+					<li>
+					{set $price+=$order_list['price']['id_'.$item_menu]}
+					<img src="{$order_list['menu']['id_'.$item_menu]['menu_pic_small']}"><br>{$order_list['menu']['id_'.$item_menu]['menu_title']}
+					</li>
+				{/foreach}
+				<li class="x_price"> = {$price}元</li>
+			</div>
+		{/foreach}
+		<div class="x_info1">总计{$item['order_total']}元 - 抵扣{$item['order_score_money']}元 = 应收：<font class="txt_redB">{$item['order_total_pay']}</font>元
+		<br>送餐时间：<font class="txt_redB">{if(isset($order_list['arrivetime'][$item['order_arrive']]))}{$order_list['arrivetime'][$item['order_arrive']]}{else}{$item['order_arrive']}{/if}</font>
+		{if(!empty($item['order_ticket']))}
+		<br><font>索取发票：{$item['order_ticket']} 元</font>
+		{/if}
+		</div>
+		<div class="x_info2">
+		{$item['order_name']}/{$item['order_sex']}<br>{$item["order_area"]} — {$item['order_louhao1']}层/{$item['order_louhao2']}室 — {if(!empty($item['order_company']))}{$item['order_company']}{if(!empty($item['order_depart']))}/{$item['order_depart']}{/if}{/if}
+		<br>{if(!empty($item['order_tel']))}固话：座机-不带区号{if(!empty($item['order_telext']))} 转 {$item['order_telext']}{/if}{/if}{if(!empty($item['order_tel']) && !empty($item['order_mobile']))} / {/if}{if(!empty($item['order_mobile']))}手机：{$item['order_mobile']}{/if}
+		</div>
+		{if(empty($item['order_state']))}
+		<div class="x_info1" id="id_btn_{$item['order_id']}" style="color:#0000ff"><input type="button" name="btn_accept" onclick="thisjs.accept({$item['order_id']})" class="btn_bg1" value="接受预订">&nbsp;&nbsp;<input type="button" name="btn_refuse" class="btn_bg1" value="拒绝预订" onclick="thisjs.show_state({$item['order_id']});"></div>
+		{/if}
+	</div>
+{/foreach}

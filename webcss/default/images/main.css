@@ -1,0 +1,93 @@
+body{margin:0px auto;padding:0px;text-align:center;font-size:12px;background:#1f160d url(bg_main1.jpg) no-repeat center top;font-family:微软雅黑}
+div,li{text-align:left}
+input{outline:0px}
+li{list-style-type:none}
+img{border:0px}
+form,ul,h1,h2,h3,h4,h5,p{margin:0px;padding:0px}
+table{border-collapse: collapse}
+a:link {color:#000000; text-decoration:none;}
+a:visited {color:#000000;text-decoration:none;}
+a:hover {color:#ff6600; text-decoration:underline;}
+a:active {color:#ff6600;}
+
+.a1 a:link {color:#ff0000; text-decoration:none;}
+.a1 a:visited {color:#ff0000;text-decoration:none;}
+.a1 a:hover {color:#ff8800; text-decoration:none;}
+.a1 a:active {color:#ff0000;}
+
+.txt_red{color:#ff0000}
+.txt_red{color:#FF3300;}
+.txt_redB{color:#FF3300;font-weight: bold;}
+.txt_gary{color:#999999;}
+.txt_orange{color:#FF9100;}
+.txt_orangeB {color:#FF9100;font-weight: bold;}
+.txt_orange14B {color:#FF9100;font-weight: bold;font-size: 14px;}
+
+.button1{width:90px;height:40px;background:url(btn_bg1.png) no-repeat;border:0px;color:#fff;font-size:14px;font-weight:bold;cursor:pointer}
+.button1x{width:90px;height:40px;background:url(btn_bg1x.png) no-repeat;border:0px;color:#fff;font-size:14px;font-weight:bold}
+.button2{width:115px;height:30px;background:url(btn_bg2.png) no-repeat;border:0px;color:#fff;font-size:14px;font-weight:bold;cursor:pointer}
+.button2x{width:115px;height:30px;background:url(btn_bg2x.png) no-repeat;border:0px;color:#fff;font-size:14px;font-weight:bold;cursor:pointer}
+.button3{width:135px;height:40px;background:url(btn_bg3.png) no-repeat;border:0px;color:#fff;font-size:22px;font-weight:bold;cursor:pointer}
+.button3x{width:135px;height:40px;background:url(btn_bg3x.png) no-repeat;border:0px;color:#666;font-size:22px;font-weight:bold;cursor:pointer}
+.button3y{width:102px;height:40px;background:url(btn_bg3y.png) no-repeat;border:0px;color:#666;font-size:22px;font-weight:bold;cursor:pointer}
+.button4{width:75px;height:30px;background:url(btn_bg4.png) no-repeat;border:0px;color:#fff;font-size:18px;cursor:pointer}
+.button4y{width:75px;height:30px;background:url(btn_bg4y.png) no-repeat;border:0px;color:#fff;font-size:18px;cursor:pointer;}
+.button4x{width:75px;height:30px;background:url(btn_bg4x.png) no-repeat;border:0px;color:#333;font-size:18px;cursor:pointer;}
+.button5{width:80px;height:21px;background:url(btn_bg5.png) no-repeat;border:0px;color:#fff;cursor:pointer}
+.button5x{width:80px;height:21px;background:url(btn_bg5x.png) no-repeat;border:0px;cursor:pointer;}
+
+
+.btn_jian{width:11px;height:11px;background:url(cart_bg4.gif) no-repeat;border:0px;cursor:pointer}
+.btn_jia{width:11px;height:11px;background:url(cart_bg5.gif) no-repeat;border:0px;cursor:pointer}
+
+.top{float:left;width:100%;height:60px;background:url(bg_top1.png) repeat-x;padding:0px;margin-bottom:20px}
+.top li{float:left;width:auto}
+.top .logo{margin-top:3px}
+.top .area{float:left;margin:22px 0px 0px 10px;width:92px;height:19px;background:url(arrow3.png) no-repeat;padding-left:3px;overflow:hidden}
+.top .search{float:right;border:1px #000000 solid;background:#EEEEEE;margin:6px 0px 0px 0px;margin-top:10px}
+.top .search .txt1{height:33px;border:0px;width:300px;background:#EEEEEE;font-size:18px;line-height:33px}
+.top .search .btn1{width:39px;height:38px;border:0px;background:url(btn_search.png) no-repeat}
+.top .menu{float:right;}
+.top .menu a{float:left;width:60px;height:50px;text-align:center;padding-top:10px}
+.top .menu a:hover {background:url(btn_sel.png) no-repeat}
+.top .menu .xsel{background:url(btn_sel.png) no-repeat}
+
+.xiala{position:absolute;top:60px;width:150px;z-index:10}
+.xiala .x2{float:left;width:140px;background:url(menu_bg1.png) repeat-x 0px bottom;padding-right:10px;text-align:right;height:14px;}
+.xiala .x1{float:left;padding:0px 5px 5px 5px;background:url(menu_bg1.png);width:140px;font-size:14px}
+.xiala .x1 a{float:left;text-decoration:none;float:left;padding:10px 5px 10px 20px;background:#fff;clear:both;height:19px;width:115px}
+.xiala .x1 a:hover{background:#DDDDDD}
+.xiala .x1 img{vertical-align:middle}
+.xiala .x1 .y1{float:left;width:140px;line-height:10px;text-align:center;background:#fff;padding:10px 0px}
+.xiala .x1 .y2{float:left;width:135px;background:#DDDDDD;padding:10px 0px 8px 5px;color:#555}
+.xiala .x3{float:left;padding:0px 5px 5px 5px;background:url(menu_bg1.png);width:140px;font-size:14px}
+.xiala .x3 img{vertical-align:middle}
+.xiala .x3 .y1{float:left;width:140px;line-height:10px;text-align:center;background:#fff;padding:10px 0px}
+.xiala .x3 .y2{float:left;width:135px;background:#DDDDDD;padding:10px 0px 8px 5px;color:#555}
+
+.loginbox{float:left;width:600px}
+.loginbox .xleft{float:left;width:350px}
+.loginbox .xleft li{float:left;width:350px}
+.loginbox .xleft span{float:left;color:#555}
+.loginbox .xleft .x1{text-align:right;width:80px;padding:10px 5px 0px 0px;font-size:14px}
+.loginbox .xleft .txt1{width:230px;height:45px;border:1px #000 solid;font-size:18px;padding:0px 5px;line-height:45px}
+.loginbox .xleft .txt2{width:80px;height:45px;border:1px #000 solid;font-size:18px;padding:0px 5px;line-height:45px}
+.loginbox .xleft img{vertical-align:middle}
+.loginbox .xright{float:right;width:150px;color:#555}
+.loginbox .xright li{float:left;width:150px;padding:5px 0px 3px 0px}
+.loginbox .xboot{float:left;width:510px;padding:8px 0px 15px 90px;margin-top:15px;line-height:30px}
+.loginbox .xboot h1{color:#ff0000;width:auto}
+
+.mg1{}
+.w1{width:740px;background:#fff}
+.h1{float:left;width:100%;height:40px}
+.main{width:980px;margin:0px auto;}
+
+.state_bg1{float:left;width:32px;height:19px;background:url(state_bg1.png) no-repeat;padding-top:12px;color:#fff;font-size:12px;text-align:center}
+.state_bg2{float:left;width:32px;height:19px;background:url(state_bg2.png) no-repeat;padding-top:12px;color:#fff;font-size:12px;text-align:center}
+.state_bg3{float:left;width:66px;height:19px;background:url(state_bg3.png) no-repeat;padding-top:12px;color:#fff;font-size:12px;text-align:center}
+.collect1{padding:0px 0px 0px 18px;background:url(collect.png) no-repeat left center;cursor:pointer}
+.collect2{padding:0px 0px 0px 18px;background:url(collect2.png) no-repeat left center;color:#CC0000;cursor:pointer}
+
+.footer{float:left;width:100%;text-align:center;padding:20px 0px;color:#555}
+.footer a{color:#555}

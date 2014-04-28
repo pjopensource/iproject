@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/shop.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.page.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="shop.js"></script>
+<script src="shop.table.js"></script>
+<style>
+body{background:#fff}
+</style>
+</head>
+<body style="overflow-x:hidden">
+{include(shop_header)}
+<div class="pMain_1" id="id_pMain_1">
+	<div class="pPath">&nbsp;&nbsp;路径：<a href="javascript:shop.refresh('url_pid=0');">顶级</a>
+	{foreach($arr_path as $path)}
+	 -> <a href="javascript:shop.refresh('url_pid={$path['area_id']}');">{$path['area_name']}</a>
+	{/foreach}
+	</div>
+</div>
+<div class="pMain" id="id_main">
+<div class="pTableBox" id="id_table_box">
+	<div class='pTableTit' id="id_table_title">
+		<li><span class="x_tit" style="width:25px">&nbsp;</span></li>
+		<li><span class="x_tit" style="width:250px">名称</span><span class="x_split"></span></li>
+		<li><span class="x_tit" style="cursor:none;width:80px">操作</span></li>
+	</div>
+	<div class="pTableList" id="id_table_list">
+		<div class='pTable' id="id_table">
+			{foreach($arr_list['list'] as $item)}
+			<div class='pTabRow' id="id_tabrow_{$item['area_id']}">
+				<li><input type='checkbox' name='selid[]' value="{$item['area_id']}"></li>
+				<li>{$item["area_name"]}</li>
+				<li>
+				{if($item['area_childs']>0)}<a href="javascript:shop.refresh('url_pid={$item['area_id']}');">下级</a>&nbsp;&nbsp;{/if}
+				{if(!in_array($item['area_id'] , $arr_list['pids']))}<a href="javascript:thisjs.add('{$item['area_id']}');">添加</a>{/if}
+				</li>
+			</div>
+			{/foreach}
+		</div>
+	</div>
+</div>
+</div>
+<div class="pFootAct" id="id_pFootAct">
+	<li><input type='checkbox' name='selall' value='1'>全选　{if($this_limit->chk_act("save"))}<input type="button" name="btnExe" value="添加" onclick="shop.frm_ajax('add_save');" class="pBtn">{/if}</li>
+</div>
+<script>
+//初始化表格控件
+kj.onload(function(){
+shop.table.list1.init('#id_table_title' , '#id_table');
+});
+//当前页面js对象
+var thisjs = new function() {
+	this.add = function(msgid) {
+		shop.ajax_url( {url:"?app={$get_app}&app_act=add_save&app_module={$get_app_module}&url_shop_id={fun_get::get('url_shop_id')}&id=" + msgid,refresh:false} , function() {kj.remove("#id_tabrow_" + msgid);shop.ajax_fun='';shop.ajax_back();} );
+	}
+}
+//全选效果
+kj.handler(":selall","click",function(){
+	var tr = kj.parent( "input<<name,selid[]" , "div");
+	if(this.checked) {
+		kj.addClassName(tr,'pRowSel');
+		kj.set("input<<name,selid[]","checked",true);
+		kj.set("input<<name,selid2[]","checked",true);
+	} else {
+		kj.delClassName(tr,'pRowSel');
+		kj.set("input<<name,selid[]","checked",false);
+		kj.set("input<<name,selid2[]","checked",false);
+	}
+});
+kj.handler("input<<name,/^selid/i","click",function(){
+	var tr = kj.parent( this , "div");
+	if(this.checked) {
+		kj.delClassName(tr,'pRowMove');
+		kj.addClassName(tr,'pRowSel');
+	} else {
+		kj.delClassName(tr,'pRowSel');
+	}
+});
+
+</script>
+{include(shop_footer)}
+</body>
+</html>

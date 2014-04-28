@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{cfg:(site_title,sys)}</title>
+<meta name="keywords" content="{cfg:(keywords,sys)}"/>
+<meta name="description" content="{cfg:(description,sys)}"/>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="gift/css.css"/>
+</head>
+<body>
+{include(header)}
+<div class="gpic"><img src="gift/ad.jpg"></div>
+<div class="gift">
+	<div class="gtitle"><span{if(fun_get::get('group')=='')} class="xsel"{/if}><a href="{fun_get::url(array('group'=>''))}">全部礼品</a></span>
+	{foreach($arr_group as $item)}
+	<span{if(fun_get::get('group')==$item)} class="xsel"{/if}><a href="{fun_get::url(array('group'=>$item))}">【{$item}】</a></span>
+	{/if}
+	</div>
+	{foreach($arr_gift as $item)}
+	<div class="glist">
+		<li class="xtit1">【{$item['gift_name']}】</li>
+		<li class="xpic"><a href="?app=act.gift&app_act=view&id={$item['gift_id']}"><img src="{$item['gift_pic']}"></a></li>
+		<li class="xbtn"><span style="float:left"><font style="font-size:30px">{$item['gift_score']}</font>&nbsp;积分</span><span style="float:right;padding:5px 10px 0px 0px"><a href="?app=act.gift&app_act=view&id={$item['gift_id']}"><img src="gift/btn2.png"></a></span></li>
+		</li>
+	</div>
+	{/foreach}
+</div>
+{include(footer)}
+</body>
+</html>

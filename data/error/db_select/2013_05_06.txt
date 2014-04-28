@@ -1,0 +1,55 @@
+===============2013-05-06 20:50:04===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://localhost/tags_meal3/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/tags_meal3/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-05-06 20:50:08===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://localhost/tags_meal3/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/tags_meal3/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-05-06 20:53:31===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://localhost/tags_meal3/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/tags_meal3/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2013-05-06 20:58:49===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://localhost/tags_meal3/
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/tags_meal3/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------

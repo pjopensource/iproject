@@ -1,0 +1,57 @@
+{include(header)}
+	<form name="frm_member" method="post" action="?app=ajax&app_act=useredit" onsubmit="return thisjs.frm_ajax();">
+	<div class="m_div2">
+    	<li><span class="x_col1">登录账号：</span><span class="x_col2">{$this_login_user->name}</li>
+     	<li><span class="x_col1">原密码：</span><span class="x_col2"><input type="password" name="oldpwd" id="id_oldpwd" class="txt1" /></li>
+    	<li><span class="x_col1">新的密码：</span><span class="x_col2"><input type="password" name="pwd1" id="id_pwd1" class="txt1"/></li>
+    	<li><span class="x_col1">再次输入：</span><span class="x_col2"><input type="password" name="pwd2" id="id_pwd2" class="txt1"/></li>
+    	<li><span class="x_col1">邮箱：</span><span class="x_col2"><input name="email" type="text" class="txt1" id="id_email" value="{$editinfo['user_email']}"/></li>
+        <li><span class="x_col1">&nbsp;&nbsp;</span><span class="x_col2"><input type="submit" name="btn_submit" class="button2" value="确定提交"></span></li>
+	</div>
+{include(footer)}
+<script>
+var thisjs = new function() {
+
+	this.frm_ajax = function() {
+		if(!kj.rule.types.email(document.frm_member.email.value)) {
+			alert("输入邮箱格式不正确");
+			document.frm_member.email.focus();
+			return false;
+		}
+		if(document.frm_member.pwd1.value!="" || document.frm_member.pwd2.value!="") {
+			if(document.frm_member.pwd1.value != document.frm_member.pwd2.value) {
+				alert("两次输入密码不正确");
+				document.frm_member.pwd1.focus();
+				return false;
+			}
+			if(!kj.rule.types.pwd(document.frm_member.pwd1.value)) {
+				alert(kj.cfg('rule_pwd_tips'));
+				document.frm_member.pwd1.focus();
+				return false;
+			}
+			if(document.frm_member.oldpwd.value=="") {
+				alert("请输入原密码");
+				document.frm_member.oldpwd.focus();
+				return false;
+			}
+		}
+		kj.ajax.post(document.frm_member,function(data){
+			var obj_data=kj.json(data);
+			if(obj_data.isnull) {
+				alert("操作失败");
+			} else {
+				if('code' in obj_data && obj_data.code=='0') {
+					kj.alert("更新成功");
+				} else {
+					if("msg" in obj_data) {
+						kj.alert(obj_data.msg);
+					} else {
+						kj.alert("保存失败");
+					}
+				}
+			}
+		});
+		return false;
+	}
+}
+</script>

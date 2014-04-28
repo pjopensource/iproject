@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/common/images/common.css"/>
+<link rel="stylesheet" type="text/css" href="/common/images/expand.css"/>
+<link rel="stylesheet" type="text/css" href="images/main.css"/>
+<link rel="stylesheet" type="text/css" href="images/shop.css"/>
+<script src="{cfg:(dirpath,base)}/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/common/js/kj.js"></script>
+<script src="/common/js/kj.dialog.js"></script>
+<script src="/common/js/kj.alert.js"></script>
+<script src="/common/js/kj.page.js"></script>
+<script src="/common/js/kj.ajax.js"></script>
+<script src="shop.js"></script>
+<script src="shop.table.js"></script>
+<style>
+body{background:#fff}
+</style>
+</head>
+<body style="overflow-x:hidden">
+{include(shop_header)}
+{foreach($order_list["list"] as $item)}
+	<div class="shop5" style="margin-top:20px">
+		<div class="x_tit"><font class="txt_orangeB">{$item['order_time']}</font></div>
+		{foreach($item['menu'] as $menu)}
+			<div class="x_li1">
+				<li class="x_col1">
+				{set $price=0}
+				{foreach($menu['id'] as $item_menu)}
+					{set $price+=$order_list['price']['id_'.$item_menu]}
+					{$order_list['menu']['id_'.$item_menu]['menu_title']}&nbsp;&nbsp;
+				{/foreach}
+				</li>
+				<li class="x_col3">￥{$price*$menu['num']}</li>
+				<li class="x_col2">{$menu['num']}份</li>
+			</div>
+		{/foreach}
+		<div class="x_info1">总计 ￥{$item['order_total']}{if(!empty($item['order_addprice']))} + 配送费 ￥{$item['order_addprice']}{/if}{if(!empty($item['order_score_money']))} - 抵扣 ￥{$item['order_score_money']}{/if}{if(!empty($item['order_favorable']))} - 优惠 ￥{$item['order_favorable']}{/if} = 应收：<font class="txt_redB" style='font-size:18px'>￥{$item['order_total_pay']}</font>
+		<br>送餐时间：<font class="txt_redB">{if(isset($order_list['arrivetime'][$item['order_arrive']]))}{$order_list['arrivetime'][$item['order_arrive']]}{else}{$item['order_arrive']}{/if}</font>
+		{if(!empty($item['order_ticket']))}
+		<br><font>索取发票：￥{$item['order_ticket']}</font>
+		{/if}
+		{if(!empty($item['order_beta']))}
+		<br><font style="color:#ff8800">备注：{$item['order_beta']}</font>
+		{/if}
+		</div>
+		<div class="x_info2">
+		{$item['order_name']}/{$item['order_sex']}<br>{$item["order_area"]} — {$item['order_louhao1']}{if(!empty($item['order_company']))} — {$item['order_company']}{if(!empty($item['order_depart']))}/{$item['order_depart']}{/if}{/if}
+		<br>{if(!empty($item['order_tel']))}固话：座机-不带区号{if(!empty($item['order_telext']))} 转 {$item['order_telext']}{/if}{/if}{if(!empty($item['order_tel']) && !empty($item['order_mobile']))} / {/if}{if(!empty($item['order_mobile']))}手机：{$item['order_mobile']}{/if}
+		{if(!empty($item['order_act_ids']))}
+		<br><span style="color:#ff8800">{$item['order_act_ids']}</span>
+		{/if}
+		</div>
+		<div class="x_info1" id="id_btn_{$item['order_id']}" style="color:#0000ff">
+			<input type="button" name="btn_close" onclick="javascript:parent.kj.dialog.close('#windetail');" class="button4" value="关闭">
+		</div>
+	</div>
+{/foreach}
+
+</body>
+</html>

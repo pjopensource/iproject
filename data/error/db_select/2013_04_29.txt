@@ -1,0 +1,85 @@
+===============2013-04-29 14:59:41===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift
+-------------------GET---------------------
+app_module=>act
+app=>gift
+-------------------POST---------------------
+
+===============2013-04-29 15:18:06===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift
+-------------------GET---------------------
+app_module=>act
+app=>gift
+-------------------POST---------------------
+
+===============2013-04-29 19:12:06===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift
+-------------------GET---------------------
+app_module=>act
+app=>gift
+-------------------POST---------------------
+
+===============2013-04-29 19:15:38===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift
+-------------------GET---------------------
+app_module=>act
+app=>gift
+-------------------POST---------------------
+
+===============2013-04-29 19:30:50===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php?app_module=act&app=gift
+HTTP_USER_AGENT => Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app=gift&app_module=act&app_act=default&page=
+-------------------GET---------------------
+app=>gift
+app_module=>act
+app_act=>default
+page=>
+-------------------POST---------------------
+
+===============2013-04-29 19:36:25===================
+MySQL Query:SELECT  FROM kj_act_gift limit 0,10 <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM kj_act_gift limit 0,10' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://mall.meal3.com/master.php
+HTTP_USER_AGENT => Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+REMOTE_ADDR => 127.0.0.1
+SCRIPT_FILENAME => E:/root/svn/meal3_mall/source/master.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_module=act&app=gift
+-------------------GET---------------------
+app_module=>act
+app=>gift
+-------------------POST---------------------

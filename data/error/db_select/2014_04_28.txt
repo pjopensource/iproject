@@ -1,0 +1,27 @@
+===============2014-04-28 00:02:10===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://192.168.1.114/washop/
+HTTP_USER_AGENT => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36
+REMOTE_ADDR => 192.168.1.101
+SCRIPT_FILENAME => /var/www/washop/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------
+
+===============2014-04-28 00:02:47===================
+MySQL Query:select shop_name,shop_id,shop_state,shop_mode,shop_hits,shop_dispatch_price,shop_support_score,shop_pic_small,shop_tj,shop_extend from kj_meal_shop where shop_id in() <br /> MySQL Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 <br /> MySQL Errno:1064
+-------------------parms---------------------
+HTTP_REFERER => http://192.168.1.114/washop/
+HTTP_USER_AGENT => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36
+REMOTE_ADDR => 192.168.1.101
+SCRIPT_FILENAME => /var/www/washop/index.php
+REQUEST_METHOD => GET
+QUERY_STRING => app_ajax=1&app_act=shophistory
+-------------------GET---------------------
+app_ajax=>1
+app_act=>shophistory
+-------------------POST---------------------

@@ -1,0 +1,75 @@
+{include(header)}
+<div class="div1" id="id_area_top">
+{foreach($arr_list as $item)}
+<li onclick="thisjs.get_area({$item['area_id']},'{$item['area_name']}','{$item['area_childs']}','{$item['area_depth']}' ,true);"><h2>{$item['area_name']}</h2></li>
+{/foreach}
+</div>
+<div class="div2" id="id_area_box" style="display:none">
+	<li id="id_path" class="y2"></li>
+	<li id="id_area_list" class="y1"></li>
+</div>
+<script>
+var thisjs = new function() {
+	this.path = [];
+	this.depth = kj.toint('{cfg:(area_depth,meal)}');
+	this.get_area = function(id,name,childs,depth,istop) {
+		kj.show("#id_area_box");
+		kj.hide("#id_area_top");
+		if(kj.toint(childs) <= 0 || this.depth<=depth) {
+			kj.cookie_set('area_id' , id , 20000 , '');
+			kj.cookie_set('area_name' , name , 20000 , '');
+			window.location.href = "?";
+			return;
+		}
+		if(istop) this.path = [];
+		this.path[this.path.length] = {'id':id,'name':name,'childs':childs,'depth':depth};
+		var html = '';
+		for(var i = 0 ; i < this.path.length ; i++) {
+			html += '<a href="javascript:thisjs.get_area('+this.path[i].id+',\''+this.path[i].name+'\',\''+this.path[i].childs+'\',\''+this.path[i].depth+'\');">' + this.path[i].name + '</a>';
+			if(id == this.path[i].id && i < this.path.length-1) {
+				for(var j = i+1 ; j < this.path.length ; j++ ) {
+					this.path.removeat(j);
+				}
+				break;
+			}
+		}
+		kj.obj('#id_path').innerHTML = html + "<span onclick='thisjs.back()'>返回</span>";
+		kj.ajax.get('{fun_get::url(array("app_act"=>"area_next"))}&pid='+id,function(data) {
+			var arr = kj.json(data);
+			var arr_jian = [];
+			var arr_j = [];
+			var jian,j;
+			for(var i = 0 ; i < arr.length ; i++) {
+				jian = arr[i].area_jian.substr(0,1);
+				if(!(jian in arr_jian)) arr_jian[jian] = [];
+				if(arr_j.indexOf(jian)<0) arr_j[arr_j.length] = jian;
+				arr_jian[jian][arr_jian[jian].length] = arr[i];
+				//html+="<li>"+arr[i].area_name+"</li>";
+			}
+			var html = "<table>";
+			for(i = 0 ; i < arr_j.length ; i++ ) {
+				html += '<tr onmouseover="kj.addClassName(this,\'rowsel\')" onmouseout="kj.delClassName(this,\'rowsel\')"><td class="jian" width="30px" valign="top">' + arr_j[i] + '</td><td>';
+				for(j = 0 ; j < arr_jian[arr_j[i]].length ; j++ ) {
+					html += '<a href="javascript:thisjs.get_area('+arr_jian[arr_j[i]][j].area_id+',\''+arr_jian[arr_j[i]][j].area_name+'\',\''+arr_jian[arr_j[i]][j].area_childs+'\',\''+arr_jian[arr_j[i]][j].area_depth+'\');">' + arr_jian[arr_j[i]][j].area_name + '</a>';
+				}
+				html += '</td></tr>';
+			}
+			html += '</table>';
+			kj.obj("#id_area_list").innerHTML = html;
+		});
+	}
+	this.back = function() {
+		if(this.path.length>1) {
+			this.path.removeat(this.path.length-1);
+			this.get_area(this.path[this.path.length-1].id,this.path[this.path.length-1].name,this.path[this.path.length-1].childs);
+		} else {
+			this.back_home();
+		}
+	}
+	this.back_home = function() {
+		kj.hide("#id_area_box");
+		kj.show("#id_area_top");
+	}
+}
+</script>
+{include(footer)}

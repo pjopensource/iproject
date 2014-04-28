@@ -1,0 +1,344 @@
+{include(header)}
+<style>
+.beta{float:left;width:400px;padding:10px 0px 0px 10px;line-height:25px};
+.me_div{float:left;margin:10px 0px 0px 10px}
+.me_div li{float:left;margin:5px 0px 5px 10px;border:1px #cccccc solid;padding:5px;background:#efefef}
+</style>
+<script>
+//保存时效验规则
+admin.rule['save'] =[
+];
+
+</script>
+<div class="pMenu" id="id_pMenu">
+	<li class="sel" onclick="admin.edittabel(0);">基本信息</li>
+	<li onclick="admin.edittabel(1);">订餐配置</li>
+	<li onclick="admin.edittabel(2);">店铺介绍</li>
+	<li onclick="admin.edittabel(3);">运营信息</li>
+	<li onclick="admin.edittabel(4);">打印信息</li>
+</div>
+<div class="pMain" id="id_main">
+<table class='pEditTable'>
+<tr class='pTabTitRow'><td class='pTabTitCol' colspan="2"></td></tr>
+<tr>
+	<td class="pTabColName">所属用户：</td><td class="pTabColVal">
+		<input type="hidden" name="shop_user_id" value="{$editinfo['shop_user_id']}" id="id_shop_user_id">
+		<div class="more1" onmouseover="kj.windiv({'id':'shop_user_windiv','fid':this,'src':'common.php?app=sys&app_act=user.dialog1'});" id="id_shop_user"onmouseout="kj.hide('#windivshop_user_windiv');">{if(empty($editinfo["user_name"]))}选择{else}{$editinfo["user_name"]}{/if}</div>
+		<div style="float:left;padding-left:20px"><a href="javascript:master_open({id:'add_user',title:'添加用户',url:'?app_module=sys&app=user&app_act=edit',w:500});" style="color:#ff8800">[创建]</a></div>
+	</td>
+	</tr>
+<tr>
+	<td class="pTabColName">名称：</td><td class="pTabColVal"><input type="input" name="shop_name" value="{$editinfo['shop_name']}" class='pTxt1 pTxtL150'></td>
+	</tr>
+<tr>
+	<td class="pTabColName">联系人：</td><td class="pTabColVal"><input type="input" name="shop_linkname" value="{$editinfo['shop_linkname']}" class='pTxt1 pTxtL150'></td>
+	</tr>
+<tr>
+	<td class="pTabColName">联系人电话：</td><td class="pTabColVal"><input type="input" name="shop_linktel" value="{$editinfo['shop_linktel']}" class='pTxt1 pTxtL150'></td>
+	</tr>
+<tr>
+	<td class="pTabColName">订餐电话：</td><td class="pTabColVal"><input type="input" name="shop_tel" value="{$editinfo['shop_tel']}" class='pTxt1 pTxtL150'></td>
+	</tr>
+<tr>
+	<td class="pTabColName">地&nbsp;&nbsp;区：</td><td class="pTabColVal">
+	<input type="hidden" name="shop_area_id" id="id_shop_area_id" value="{$editinfo['shop_area_id']}">
+	<input type="hidden" name="shop_area_allid" id="id_shop_area_allid" value="{$editinfo['shop_area_allid']}">
+	<input type="hidden" name="shop_area" id="id_shop_area" value="{$editinfo['shop_area']}">
+	<select name="area_id[]" onchange="thisjs.changearea(this.value,0);" id="id_area_0">
+		<option value=""></option>
+	{foreach($editinfo["area"]["default"] as $item)}
+		<option value="{$item['area_id']}"{if(in_array($item['area_id'] , explode("," , $editinfo['shop_area_allid']) ) )} selected{/if}>{$item['area_name']}</option>
+	{/foreach}
+	</select>
+	{for($i=1;$i<$editinfo["area"]["depth"];$i++)}
+		<select name="area_id[]" onchange="thisjs.changearea(this.value,{$i});" id="id_area_{$i}">
+		</select>
+	{/foreach}
+	</td>
+	</tr>
+<tr>
+	<td class="pTabColName">店铺地址：</td><td class="pTabColVal"><input type="input" name="shop_address" value="{$editinfo['shop_address']}" class='pTxt1 pTxtL250'></td>
+	</tr>
+<tr>
+	<td class="pTabColName">店面logo：</td><td class="pTabColVal"><span style="float:left"><input type="input" name="shop_pic" id="id_shop_pic" value="{$editinfo['shop_pic']}" class='pTxt1 pTxtL300' onchange="kj.obj('#id_img_shop_pic').src=kj.url_view(this.value);">&nbsp;<a href="javascript:kj.dialog({id:'dialog_attatch',title:'选择图片',url:'common.php?app=other&app_act=attatch&url_objid=id_shop_pic',w:600,showbtnhide:false,top:0,type:'iframe'});">选择</a><br><iframe name="frm_article_pic_big" src="common.php?app=other&app_act=upload&small=1&small_w=80&small_h=80" width="300px" height="30px" frameborder=0 scrolling="no"></iframe></span><span style="float:left;margin-left:5px"><img src="{$editinfo['shop_pic']}" width="60px" height="60px" id="id_img_shop_pic" onclick="kj.pic.preview(this.src);" onerror="this.src='{$temp_baseurl}common/images/no_pic.jpg'"></span></td>
+	</tr>
+<tr>
+	<td class="pTabColName">小图：</td><td class="pTabColVal"><span style="float:left"><input type="input" name="shop_pic_small" id="id_shop_pic_small" value="{$editinfo['shop_pic_small']}" class='pTxt1 pTxtL300' onchange="kj.obj('#id_img_shop_pic_small').src=kj.url_view(this.value);">&nbsp;<a href="javascript:kj.dialog({id:'dialog_attatch',title:'选择图片',url:'common.php?app=other&app_act=attatch&url_objid=id_shop_pic_small',w:600,showbtnhide:false,top:0,type:'iframe'});">选择</a><br><iframe name="frm_article_pic" src="common.php?app=other&app_act=upload&callback=upload_callback_small" width="300px" height="30px" frameborder=0 scrolling="no"></iframe></span><span style="float:left;margin-left:5px"><img src="{$editinfo['shop_pic_small']}" width="60px" height="60px" id="id_img_shop_pic_small" onclick="kj.pic.preview(this.src);"  onerror="this.src='{$temp_baseurl}common/images/no_pic.jpg'"></span></td>
+	</tr>
+<tr>
+	<td class="pTabColName">经营范围：</td>
+	<td class="pTabColVal">
+		<label><input type="checkbox" name="shop_mode[]" value="1"{if($editinfo['shop_mode']==1||$editinfo['shop_mode']==3)} checked{/if}>套餐</label>&nbsp;&nbsp;<label><input type="checkbox" name="shop_mode[]" value="2"{if($editinfo['shop_mode']==2||$editinfo['shop_mode']==3)} checked{/if}>中式自选</label>
+		<span class="pBeta"><a href="http://www.klkkdj.com/common.php?app=article&app_act=view&id=115" target="_blank" title="详细解释"><img src="images/faq.gif"></a></span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">状 态：</td>
+	<td class="pTabColVal">
+		<select name="shop_state">
+		{foreach($arr_state as $item=>$key)}
+			<option value="{$key}"{if($key==$editinfo['shop_state'])} selected{/if}>{$item}</option>
+		{/foreach}
+		</select>
+	</td></tr>
+<tr>
+	<td class="pTabColName">推 荐：</td>
+	<td class="pTabColVal">
+		<input type="input" name="shop_tj" value="{$editinfo['shop_tj']}" class='pTxt1 pTxtL60'> <span class="pBeta">填写大于零的数字表示推荐，首页推荐按此值排序</span>
+	</td></tr>
+</table>
+<!--label 1 end-->
+<table class='pEditTable' style="display:none">
+<tr class='pTabTitRow'><td class='pTabTitCol' colspan="2"></td></tr>
+{if(cls_config::get('score_mode','meal')==2)}
+<tr>
+	<td class="pTabColName">开通积分兑换 ：</td><td class="pTabColVal">
+	<label><input type="checkbox" name="shop_support_score" value="1"{if(!empty($editinfo['shop_support_score']))} checked{/if}>是</label>
+	<span class="pBeta"><a href="http://www.klkkdj.com/common.php?app=article&app_act=view&id=93" target="_blank" title="详细解释"><img src="images/faq.gif"></a></span>
+	</td></tr>
+{/if}
+<tr>
+	<td class="pTabColName">开放时间 ：</td><td class="pTabColVal">
+	<span style="float:left"><textarea name="opentime" cols=50 rows=5>{$editinfo['extend']['opentime']}</textarea></span><span class="pBeta beta">“允许下单的时间,可以设多个时间段，以换行分隔,如：900,1300 表示9点到13点”&nbsp;&nbsp;<a href="http://www.klkkdj.com/common.php?app=article&app_act=view&id=117" target="_blank" title="详细解释"><img src="images/faq.gif"></a></span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">送餐时间 ：</td><td class="pTabColVal">
+	<span style="float:left"><textarea name="arrivetime" cols=50 rows=5>{$editinfo['extend']['arrivetime']}</textarea></span><span class="pBeta beta">“一天送餐的时间段”&nbsp;&nbsp;<a href="http://www.klkkdj.com/common.php?app=article&app_act=view&id=116" target="_blank" title="详细解释"><img src="images/faq.gif"></a></span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">送订餐时间差 ：</td><td class="pTabColVal" valign="top" style="line-height:30px">
+	<input type="input" name="arrivedelay" value="{$editinfo['extend']['arrivedelay']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">分钟<br>“下单时间与要求送餐时间要隔分钟数，如10点下单，这里如果是30分钟，那么表示送餐时间显示从10:30起”&nbsp;&nbsp;<a href="http://www.klkkdj.com/common.php?app=article&app_act=view&id=118" target="_blank" title="详细解释"><img src="images/faq.gif"></a></span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">单份订单最低金额 ：</td><td class="pTabColVal" valign="top" style="line-height:30px">
+	<input type="input" name="shop_oneminleast" value="{$editinfo['shop_oneminleast']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">元<br>0表示不限，用于中式自选模式中用户自已搭配菜品时，每份必须达到的价格，主要限制用户只点一元钱的饭与一元钱的菜就提交订单</span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">起送价 ：</td><td class="pTabColVal" valign="top" style="line-height:30px">
+	<input type="input" name="shop_dispatch_price" value="{$editinfo['shop_dispatch_price']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">元<br>0表示不限 ,当设置此值时，如果派送范围里没有限制最低价，则按此价算</span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">配送费 ：</td><td class="pTabColVal" valign="top" style="line-height:30px">
+	<input type="input" name="shop_addprice" value="{$editinfo['shop_addprice']}" class='pTxt1 pTxtL150'>&nbsp;<span class="pBeta">元<br>0表示免费配送，可以通过活动，添加满多少，然后减去配送费，以实现达到多少免配送费的功能</span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">提供发票：</td>
+	<td class="pTabColVal">
+		<input type="checkbox" name="shop_ticket" value=1{if($editinfo['shop_ticket'])} checked{/if}>
+	</td></tr>
+</table>
+<!--label 3 start-->
+<table class='pEditTable' style='display:none'>
+<tr class='pTabTitRow'><td class='pTabTitCol' colspan="2"></td></tr>
+<tr>
+	<td class="pTabColName">简介：<br><span class='pBeta'>不超过500字</span></td><td class="pTabColVal"><textarea name="shop_desc" id="shop_desc" cols="90" rows="5">{$editinfo['shop_desc']}</textarea></td></tr>
+<tr>
+	<td class="pTabColName">详细介绍：</td><td class="pTabColVal"><textarea name="shop_intro" id="shop_intro" cols="60" rows="5" style="display:none">{$editinfo['shop_intro']}</textarea>{fun_get::editor('shop_intro','admin')}</td></tr>
+</table>
+<!--label 1 end-->
+<table class='pEditTable' style="display:none">
+<tr class='pTabTitRow'><td class='pTabTitCol' colspan="2"></td></tr>
+<tr>
+	<td class="pTabColName">返点比例 ：</td><td class="pTabColVal"><input type="input" name="shop_rebate" value="{$editinfo['shop_rebate']}" class='pTxt1 pTxtL60'> %<br><span class="pBeta">直接填写比例值，如：8% 填写 8 就行了，主要用于记录站长与商家的提成制，暂时功能不大</span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">最低结款 ：</td><td class="pTabColVal">
+	<input type="input" name="shop_checkout_money" value="{$editinfo['shop_checkout_money']}" class='pTxt1 pTxtL60'><br><span class="pBeta">当到了结款日时如果未达到此营业额，将累计到下月结款</span>
+	</td></tr>
+<tr>
+	<td class="pTabColName">短信模式：</td>
+	<td class="pTabColVal">
+		{if(fun_is::com('sms'))}
+			<select name="shop_sms">
+			{foreach($arr_sms as $item=>$key)}
+				<option value="{$key}"{if($key==$editinfo['shop_sms'])} selected{/if}>{$item}</option>
+			{/foreach}
+			</select>
+			&nbsp;<span class="pBeta">【订单提醒】紧紧发一条“您有新的订单”这样的提醒信息，【订单详情】则可以发送订单详细信息</span>
+		{else}
+			<input type="hidden" name="shop_sms" value="{$editinfo['shop_sms']}"><span style="color:#ff0000">未安装短信组件</span>
+		{/if}
+	</td></tr>
+<tr>
+	<td class="pTabColName">接收手机：</td>
+	<td class="pTabColVal">
+		<input type="input" name="shop_sms_tel" value="{$editinfo['shop_sms_tel']}" class='pTxt1 pTxtL200'>&nbsp;<span class="pBeta">可以是多个，以小逗号(英文时的逗号)分隔</span>
+	</td></tr>
+</table>
+<!--label 5 start-->
+<table class='pEditTable' style='display:none'>
+<tr class='pTabTitRow'><td class='pTabTitCol' colspan="2"></td></tr>
+<tr>
+	<td class="pTabColName">小票内容：</td><td class="pTabColVal"><div style="float:left"><textarea name="shop_printinfo" id="shop_printinfo" cols="60" rows="22">{$editinfo['shop_printinfo']}</textarea></div></td><td class="pTabColVal" valign="top">
+	<div style="float:left;width:90%;color:#888888;line-height:25px">格式如：{店铺名称} 这样的文字在这里称为变量，系统预先设置好的，在打印时会根据相关信息自动替换过来,目前支持以下变量，请点击插入</div>
+	<div class="me_div">
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{餐厅名称}');" title="点击插入变量">餐厅名称</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{订餐电话}');" title="点击插入变量">订餐电话</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{餐厅地址}');" title="点击插入变量">餐厅地址</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{订单号}');" title="点击插入变量">订单号</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{所在区域}');" title="点击插入变量">所在区域</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{具体地址}');" title="点击插入变量">具体地址</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{公司}');" title="点击插入变量">公司</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{部门}');" title="点击插入变量">部门</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{客户称呼}');" title="点击插入变量">客户称呼</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{送餐地址}');" title="等于所在区域加上具体地址">送餐地址</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{客户电话}');" title="等于固话加上手机">客户电话</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{固话}');" title="点击插入变量">固话</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{手机}');" title="点击插入变量">手机</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{下单时间}');" title="点击插入变量">下单时间</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{指定时间信息}');" title="点击插入变量">指定时间信息</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{打印时间}');" title="点击插入变量">打印时间</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{应收金额}');" title="点击插入变量">应收金额</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{菜品列表}');" title="点击插入变量">菜品列表</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{优惠活动}');" title="点击插入变量">优惠活动</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{积分抵扣}');" title="点击插入变量">积分抵扣</a></li>
+	<li><a href="javascript:kj.textarea_insertstr('#shop_printinfo','{发票信息}');" title="点击插入变量">发票信息</a></li>
+	</div>
+	</div>
+	</td></tr>
+<tr>
+	<td class="pTabColName"></td>
+	<td class="pTabColVal"><input type="button" name="print_test" value="测试打印" onclick="thisjs.print();" class="pBtn">
+	</td></tr>
+</table>
+
+</div>
+<div class="pFootAct" id="id_pFootAct">
+	<li>
+	<input type="button" name="dosubmit" value="保存" onclick="thisjs.get_cont();admin.frm_ajax('save' , function(){thisjs.clear_cont();});" class="pBtn">
+	</li>
+</div>
+<div id="id_print_html" style="display:none">
+<iframe src="#" width="100%" height="400px" frameborder=0 id="id_frame_print"></iframe>
+</div>
+<script>
+//选择图片回调函数
+function attatch_callback(o) {
+	if('objid' in o) {
+		if(o.objid == 'id_shop_pic') {
+			kj.obj("#id_img_shop_pic").src = kj.url_view(kj.obj("#id_shop_pic").value);
+		} else {
+			kj.obj("#id_img_shop_pic_small").src = kj.url_view(kj.obj("#id_shop_pic_small").value);
+		}
+	}
+	kj.dialog.close("#windialog_attatch");
+}
+function upload_callback_small(info){
+	var obj = kj.json(info);
+	if('url' in obj) {
+		kj.obj("#id_shop_pic_small").value = obj.url;
+		kj.obj("#id_img_shop_pic_small").src = kj.url_view(obj.url);
+	}
+}
+function upload_callback(info){
+	var obj = kj.json(info);
+	if('url' in obj) {
+		kj.obj("#id_shop_pic").value=obj.url;
+		kj.obj("#id_img_shop_pic").src = kj.url_view(obj.url);
+	}
+	if('url_small' in obj && kj.obj("#id_shop_pic_small").value=='') {
+		kj.obj("#id_shop_pic_small").value = obj.url_small;
+		kj.obj("#id_img_shop_pic_small").src = kj.url_view(obj.url_small);
+	}
+}
+//用户选择回调函数
+function user1_callback(o) {
+	if("id" in o) kj.obj("#id_shop_user_id").value=o.id;
+	if("name" in o) kj.obj("#id_shop_user").innerHTML = o.name;
+	kj.hide("#windivshop_user_windiv");
+}
+var thisjs = new function() {
+	this.arealist = {$editinfo["area"]["list"]};//json格式，指定id包函的子地区
+	this.areainfo = {$editinfo["area"]["area"]};//对应id地区详细信息
+	this.depth = {$editinfo["area"]["depth"]};//当前地区深度
+	this.defaultval = "{$editinfo['shop_area_allid']}"//当前选择值
+	this.defaultval = this.defaultval.split(",");//格式化成数组
+	//地区下拉发生改变时触发
+	this.changearea = function(val , index) {
+		var obj,i,ii;
+		index++;
+		//当index大于深度时跳出
+		if(index>this.depth) return;
+		//发生改变后，重置之后的地区下拉
+		for(i = index ; i < this.depth; i++) {
+			obj = kj.obj("#id_area_" + i);
+			if(!obj) break;
+			obj.options.length = 0;
+			if(i>index) kj.hide(obj);
+		}
+
+		var key = "id_" + val;
+		if(!(key in this.arealist) || !("length" in this.arealist[key])) {
+			kj.hide("#id_area_" + index);
+			//跳出则刷新当前地区值
+			this.refresh_area_val();
+			return;
+		}
+		kj.show("#id_area_" + index);
+		kj.add_option("#id_area_" + index , '' , '');
+		for(i = 0 ; i < this.arealist["id_"+val].length ; i++ ) {
+			obj = kj.obj("#id_area_" + index);
+			ii = this.arealist["id_"+val][i];
+			if( !("id_" + ii in this.areainfo ) ) continue;
+			kj.add_option(obj , this.areainfo["id_" + ii]["area_name"] , ii);
+			//选中默认值
+			if(this.defaultval.length>index && obj.options[i+1].value == this.defaultval[index]) {
+				obj.options[i+1].selected=true;
+			}
+		}
+		this.changearea(obj.value , index);
+		this.refresh_area_val();
+	}
+	this.refresh_area_val = function() {
+		var obj = kj.obj(":area_id[]");
+		var arr_id = [];
+		var arr_val = [];
+		var id = 0;
+		for(var i = 0 ; i < obj.length ; i++) {
+			if(obj[i].value != '') {
+				if( !("id_" + obj[i].value in this.areainfo ) ) continue;
+				arr_id[arr_id.length] = obj[i].value;
+				arr_val[arr_val.length] = ('area_val' in this.areainfo["id_" + obj[i].value]) ? this.areainfo["id_" + obj[i].value]["area_val"] : this.areainfo["id_" + obj[i].value]["area_name"];
+			} else {
+				break;
+			}
+		}
+		if(arr_id.length>0) {
+			kj.obj("#id_shop_area_id").value = arr_id[arr_id.length-1];
+		} else {
+			kj.obj("#id_shop_area_id").value = '';
+		}
+		kj.obj("#id_shop_area_allid").value = arr_id.join(",");
+		kj.obj("#id_shop_area").value = arr_val.join(" ");
+	}
+	//因为这里用ajax，fckeditor不会取到内容，所以自己取
+	this.get_cont = function() {
+		var fckeditor = FCKeditorAPI.GetInstance('shop_intro');
+		kj.obj("#shop_intro").value = fckeditor.GetHTML(); //这就是内容
+	}
+	//ajax 提交后，还得清空内容
+	this.clear_cont = function() {
+		//只有当添加时才要清空
+		{if(empty($editinfo['shop_id']))}
+			var fckeditor = FCKeditorAPI.GetInstance('shop_intro');
+			fckeditor.EditorDocument.body.innerHTML="";
+		{/if}
+	}
+	this.print = function() {
+		var action = document.frm_main.action;
+		document.frm_main.action = "./common.php?app_module=meal&app=call&app_act=print.test";
+		document.frm_main.target = "_blank";
+		document.frm_main.submit();
+		document.frm_main.action = action;
+		document.frm_main.target = '_self';
+	}
+
+}
+kj.onload(function() {
+	//加载默认值选中
+	thisjs.changearea(kj.obj("#id_area_0").value,0);
+	{for($i=1;$i<$editinfo["area"]["depth"];$i++)}
+		thisjs.changearea(kj.obj("#id_area_{$i}").value,{$i});
+	{/for}
+});
+</script>
+{include(footer)}
